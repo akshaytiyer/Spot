@@ -1,0 +1,2 @@
+# Spot
+Your movie manager
