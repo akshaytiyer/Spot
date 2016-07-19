@@ -15,6 +15,7 @@
 		5E072A5D1D3D6CBF002F0BE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E072A5B1D3D6CBF002F0BE2 /* LaunchScreen.storyboard */; };
 		5E072A681D3D6CBF002F0BE2 /* SpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E072A671D3D6CBF002F0BE2 /* SpotTests.swift */; };
 		5E072A731D3D6CBF002F0BE2 /* SpotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E072A721D3D6CBF002F0BE2 /* SpotUITests.swift */; };
+		5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5E072A6E1D3D6CBF002F0BE2 /* SpotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E072A721D3D6CBF002F0BE2 /* SpotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotUITests.swift; sourceTree = "<group>"; };
 		5E072A741D3D6CBF002F0BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				5E072A5B1D3D6CBF002F0BE2 /* LaunchScreen.storyboard */,
 				5E072A5E1D3D6CBF002F0BE2 /* Info.plist */,
 				5E072A561D3D6CBF002F0BE2 /* Spot.xcdatamodeld */,
+				5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */,
 			);
 			path = Spot;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				5E072A581D3D6CBF002F0BE2 /* Spot.xcdatamodeld in Sources */,
 				5E072A521D3D6CBF002F0BE2 /* ViewController.swift in Sources */,
 				5E072A501D3D6CBF002F0BE2 /* AppDelegate.swift in Sources */,
+				5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +499,7 @@
 				5E072A791D3D6CBF002F0BE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E072A7A1D3D6CBF002F0BE2 /* Build configuration list for PBXNativeTarget "SpotTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +508,7 @@
 				5E072A7C1D3D6CBF002F0BE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E072A7D1D3D6CBF002F0BE2 /* Build configuration list for PBXNativeTarget "SpotUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +517,7 @@
 				5E072A7F1D3D6CBF002F0BE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
