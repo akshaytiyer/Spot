@@ -71,6 +71,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GothamMedium" family="GothamMedium" pointSize="14"/>
+                            <color key="textColor" red="0.83529411764705885" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="SiU-Wd-SiO">
                         <rect key="frame" x="0.0" y="524" width="320" height="44"/>
@@ -97,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sjR-OQ-ugv"/>
+                    <navigationItem key="navigationItem" title="DISCOVER" id="sjR-OQ-ugv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Inz-8h-rfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
