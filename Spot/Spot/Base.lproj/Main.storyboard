@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Watchlist-->
+        <!--Watchlist View-->
         <scene sceneID="gax-hd-hAv">
             <objects>
-                <viewController id="ZS6-Wl-jVL" sceneMemberID="viewController">
+                <viewController title="Watchlist View" id="ZS6-Wl-jVL" customClass="SpotWatchlistViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TLP-kA-krv"/>
                         <viewControllerLayoutGuide type="bottom" id="bgE-LE-iiS"/>
@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="141" y="-100"/>
         </scene>
-        <!--Library-->
+        <!--Library View-->
         <scene sceneID="aAT-Yk-uje">
             <objects>
-                <viewController id="OLd-DB-Nq1" sceneMemberID="viewController">
+                <viewController title="Library View" id="OLd-DB-Nq1" customClass="SpotLibraryViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="atD-JE-1Eu"/>
                         <viewControllerLayoutGuide type="bottom" id="i8N-FI-K19"/>
@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="-1444" y="-586"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View-->
         <scene sceneID="hPg-J7-uM8">
             <objects>
-                <viewController id="tuy-OF-VWA" sceneMemberID="viewController">
+                <viewController title="Search View" id="tuy-OF-VWA" customClass="SpotSearchViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PEK-1D-hwu"/>
                         <viewControllerLayoutGuide type="bottom" id="F11-0F-9lI"/>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="-679" y="442"/>
         </scene>
-        <!--Discover-->
+        <!--Discover Navigation Bar-->
         <scene sceneID="q93-KC-yL3">
             <objects>
-                <navigationController id="yC9-pQ-NM4" sceneMemberID="viewController">
+                <navigationController title="Discover Navigation Bar" id="yC9-pQ-NM4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" image="Discover Icon" id="ypc-mV-Q6b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NoD-8o-3yf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="-155" y="-897"/>
         </scene>
-        <!--View Controller-->
+        <!--Discover View-->
         <scene sceneID="1ed-ip-VuY">
             <objects>
-                <viewController id="ozc-iP-Q5H" sceneMemberID="viewController">
+                <viewController title="Discover View" id="ozc-iP-Q5H" customClass="SpotDiscoverViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EfA-vW-bTe"/>
                         <viewControllerLayoutGuide type="bottom" id="md1-DK-B1I"/>
