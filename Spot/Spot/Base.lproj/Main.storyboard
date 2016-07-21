@@ -117,25 +117,26 @@
             </objects>
             <point key="canvasLocation" x="-155" y="-897"/>
         </scene>
-        <!--DISCOVER-->
+        <!--Discover Table View Controller-->
         <scene sceneID="nL2-n2-H6P">
             <objects>
-                <tableViewController id="DGI-hF-ats" customClass="SpotDiscoverViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Discover Table View Controller" id="DGI-hF-ats" customClass="SpotDiscoverViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="245" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xha-Fv-glp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverPage" rowHeight="245" id="mFz-PW-lHC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverTableViewCell" rowHeight="245" id="mFz-PW-lHC" customClass="SpotDiscoverTableViewCell" customModule="Spot" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="245"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mFz-PW-lHC" id="NF4-cU-4hw">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="244.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-tn-Ief">
-                                            <rect key="frame" x="15" y="50" width="105" height="195"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e3f-3U-zVD">
+                                            <rect key="frame" x="15" y="50" width="305" height="195"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e3f-3U-zVD">
                                                 <size key="itemSize" width="105" height="195"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -148,13 +149,28 @@
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                         <rect key="frame" x="0.0" y="0.0" width="105" height="195"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-1n-F7P">
+                                                                <rect key="frame" x="0.0" y="0.0" width="105" height="195"/>
+                                                            </imageView>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Y96-1n-F7P" secondAttribute="trailing" id="78m-DF-jcL"/>
+                                                        <constraint firstItem="Y96-1n-F7P" firstAttribute="leading" secondItem="KE0-is-Hkl" secondAttribute="leading" id="GoP-Fg-FoC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Y96-1n-F7P" secondAttribute="bottom" id="c7j-BR-iWU"/>
+                                                        <constraint firstItem="Y96-1n-F7P" firstAttribute="top" secondItem="KE0-is-Hkl" secondAttribute="top" id="iLf-gT-DOH"/>
+                                                    </constraints>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="collectionView" destination="y5w-tn-Ief" id="tbJ-kK-VcU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -194,6 +210,7 @@
     </scenes>
     <resources>
         <image name="Discover Icon" width="25" height="25"/>
+        <image name="Launch Screen" width="320" height="568"/>
         <image name="Library Icon" width="25" height="25"/>
         <image name="News Icon" width="25" height="25"/>
         <image name="Watchlist Icon" width="25" height="25"/>

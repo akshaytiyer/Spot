@@ -22,6 +22,8 @@
 		5EA70F871D404E6C00223BFF /* SpotDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F861D404E6C00223BFF /* SpotDiscoverViewController.swift */; };
 		5EA70F891D404F7B00223BFF /* TraktSharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F881D404F7B00223BFF /* TraktSharedInstance.swift */; };
 		5EA70F8B1D40503900223BFF /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F8A1D40503900223BFF /* GCDBlackBox.swift */; };
+		5EA70F8D1D406C3C00223BFF /* SpotDiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F8C1D406C3C00223BFF /* SpotDiscoverTableViewCell.swift */; };
+		5EA70F8F1D406F3300223BFF /* SpotDiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F8E1D406F3300223BFF /* SpotDiscoverCollectionViewCell.swift */; };
 		5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */; };
 		5EFF6B831D3DC7A400F7BC0E /* SpotSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */; };
 		5EFF6B851D3DC7C500F7BC0E /* SpotWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */; };
@@ -76,6 +78,8 @@
 		5EA70F861D404E6C00223BFF /* SpotDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotDiscoverViewController.swift; sourceTree = "<group>"; };
 		5EA70F881D404F7B00223BFF /* TraktSharedInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktSharedInstance.swift; sourceTree = "<group>"; };
 		5EA70F8A1D40503900223BFF /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		5EA70F8C1D406C3C00223BFF /* SpotDiscoverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotDiscoverTableViewCell.swift; sourceTree = "<group>"; };
+		5EA70F8E1D406F3300223BFF /* SpotDiscoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotDiscoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTabBarController.swift; sourceTree = "<group>"; };
 		5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotSearchViewController.swift; sourceTree = "<group>"; };
 		5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotWatchlistViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 			children = (
 				5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */,
 				5EA70F711D3EDB8300223BFF /* CircularView.swift */,
+				5EA70F8C1D406C3C00223BFF /* SpotDiscoverTableViewCell.swift */,
+				5EA70F8E1D406F3300223BFF /* SpotDiscoverCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -383,8 +389,10 @@
 				5EA70F7B1D3F0A9700223BFF /* TraktConvenience.swift in Sources */,
 				5EA70F8B1D40503900223BFF /* GCDBlackBox.swift in Sources */,
 				5E072A501D3D6CBF002F0BE2 /* AppDelegate.swift in Sources */,
+				5EA70F8D1D406C3C00223BFF /* SpotDiscoverTableViewCell.swift in Sources */,
 				5EA70F7D1D3F0AE100223BFF /* TraktData.swift in Sources */,
 				5EA70F761D3F0A6F00223BFF /* TraktConstants.swift in Sources */,
+				5EA70F8F1D406F3300223BFF /* SpotDiscoverCollectionViewCell.swift in Sources */,
 				5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */,
 				5EA70F721D3EDB8300223BFF /* CircularView.swift in Sources */,
 				5EFF6B831D3DC7A400F7BC0E /* SpotSearchViewController.swift in Sources */,

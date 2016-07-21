@@ -31,6 +31,17 @@ class SpotDiscoverViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return traktData.count
     }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("DiscoverTableViewCell",
+                                                               forIndexPath: indexPath)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        guard let tableViewCell = cell as? SpotDiscoverTableViewCell else { return }
+        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+    }
 
     //Logout
     private func dismissApp()
@@ -41,4 +52,21 @@ class SpotDiscoverViewController: UITableViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
+}
+
+extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        print(traktData[collectionView.tag].count)
+        return traktData[collectionView.tag].count
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+                        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DiscoverCollectionViewCell",
+                                                                         forIndexPath: indexPath)
+        cell.backgroundColor = UIColor.blackColor()
+        return cell
+    }
 }
