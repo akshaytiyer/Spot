@@ -69,4 +69,12 @@ extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionView
         cell.backgroundColor = UIColor.blackColor()
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        guard let collectionViewCell = cell as? SpotDiscoverCollectionViewCell else { return }
+        let data = traktData[collectionView.tag][indexPath.row]
+        let url = NSURL(string: data.backgroundImagePath)
+        let imageData = NSData.init(contentsOfURL: url!)
+        collectionViewCell.updateWithImage(UIImage.init(data: imageData!))
+    }
 }
