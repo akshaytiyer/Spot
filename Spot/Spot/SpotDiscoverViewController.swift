@@ -11,6 +11,17 @@ class SpotDiscoverViewController: UITableViewController {
     
     var traktData = TraktSharedInstance.sharedInstance().traktData
     
+    override func viewDidLoad() {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        if let font = UIFont(name: "GothamMedium", size: 14) {
+            let navBarAttributesDictionary: [String: AnyObject]? = [
+                NSForegroundColorAttributeName: UIColor.init(red: 213.0/255.0, green: 227.0/255.0, blue: 227.0/255.0, alpha: 1.0),
+                NSFontAttributeName: font
+            ]
+            self.navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         TraktClient.sharedInstance().getTraktData { (result, error) in
@@ -66,6 +77,8 @@ extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionView
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DiscoverCollectionViewCell",
                                                                          forIndexPath: indexPath)
+        cell.layer.shouldRasterize = true;
+        cell.layer.rasterizationScale = UIScreen.mainScreen().scale
         cell.backgroundColor = UIColor.blackColor()
         return cell
     }
@@ -73,8 +86,6 @@ extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         guard let collectionViewCell = cell as? SpotDiscoverCollectionViewCell else { return }
         let data = traktData[collectionView.tag][indexPath.row]
-        let url = NSURL(string: data.backgroundImagePath)
-        let imageData = NSData.init(contentsOfURL: url!)
-        collectionViewCell.updateWithImage(UIImage.init(data: imageData!))
+        collectionViewCell.updateWithImage(data.backgroundImage)
     }
 }

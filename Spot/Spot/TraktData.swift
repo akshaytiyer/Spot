@@ -6,7 +6,7 @@
 //  Copyright © 2016 akshaytiyer. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct TraktData {
     //MARK: Properties
@@ -14,15 +14,16 @@ struct TraktData {
     let title: String!
     let tmdbId: Int!
     let backgroundImagePath: String!
-    
+    let backgroundImage: UIImage!
     //MARK: Initializers
     
     //Construct a data from a dictionary
-    init(traktId: Int!, title: String!, tmdbId: Int!, backgroundImagePath: String!) {
+    init(traktId: Int!, title: String!, tmdbId: Int!, backgroundImagePath: String!, backgroundImage: UIImage!) {
         self.traktId = traktId
         self.title = title
         self.tmdbId = tmdbId
         self.backgroundImagePath = backgroundImagePath
+        self.backgroundImage = backgroundImage
     }
     
     //MARK: Helper Method
@@ -37,9 +38,9 @@ struct TraktData {
                   let idData = movieData["ids"] as? [String: AnyObject] else {
                 return trakt
             }
-            print(poster)
-            print(idData)
-            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, backgroundImagePath: poster["thumb"] as? String))
+            let url = NSURL(string: (poster["thumb"] as? String)!)
+            let image = NSData.init(contentsOfURL: url!)
+            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, backgroundImagePath: poster["thumb"] as? String, backgroundImage: UIImage(data: image!)))
         }
         return trakt
     }
