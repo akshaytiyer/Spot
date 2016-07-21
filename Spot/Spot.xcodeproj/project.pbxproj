@@ -14,6 +14,14 @@
 		5E072A5D1D3D6CBF002F0BE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E072A5B1D3D6CBF002F0BE2 /* LaunchScreen.storyboard */; };
 		5E072A681D3D6CBF002F0BE2 /* SpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E072A671D3D6CBF002F0BE2 /* SpotTests.swift */; };
 		5E072A731D3D6CBF002F0BE2 /* SpotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E072A721D3D6CBF002F0BE2 /* SpotUITests.swift */; };
+		5EA70F721D3EDB8300223BFF /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F711D3EDB8300223BFF /* CircularView.swift */; };
+		5EA70F761D3F0A6F00223BFF /* TraktConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */; };
+		5EA70F791D3F0A8100223BFF /* TraktClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F781D3F0A8100223BFF /* TraktClient.swift */; };
+		5EA70F7B1D3F0A9700223BFF /* TraktConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F7A1D3F0A9700223BFF /* TraktConvenience.swift */; };
+		5EA70F7D1D3F0AE100223BFF /* TraktData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F7C1D3F0AE100223BFF /* TraktData.swift */; };
+		5EA70F871D404E6C00223BFF /* SpotDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F861D404E6C00223BFF /* SpotDiscoverViewController.swift */; };
+		5EA70F891D404F7B00223BFF /* TraktSharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F881D404F7B00223BFF /* TraktSharedInstance.swift */; };
+		5EA70F8B1D40503900223BFF /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F8A1D40503900223BFF /* GCDBlackBox.swift */; };
 		5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */; };
 		5EFF6B831D3DC7A400F7BC0E /* SpotSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */; };
 		5EFF6B851D3DC7C500F7BC0E /* SpotWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */; };
@@ -27,9 +35,6 @@
 		5EFF6B941D3DD21600F7BC0E /* GothamMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF6B8D1D3DD21600F7BC0E /* GothamMedium.otf */; };
 		5EFF6B951D3DD21600F7BC0E /* GothamMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF6B8D1D3DD21600F7BC0E /* GothamMedium.otf */; };
 		5EFF6B961D3DD21600F7BC0E /* GothamMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF6B8D1D3DD21600F7BC0E /* GothamMedium.otf */; };
-		5EFF6B9D1D3DD44600F7BC0E /* SpotDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B9C1D3DD44600F7BC0E /* SpotDiscoverViewController.swift */; };
-		5EFF6B9E1D3DD44600F7BC0E /* SpotDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B9C1D3DD44600F7BC0E /* SpotDiscoverViewController.swift */; };
-		5EFF6B9F1D3DD44600F7BC0E /* SpotDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B9C1D3DD44600F7BC0E /* SpotDiscoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,14 @@
 		5E072A6E1D3D6CBF002F0BE2 /* SpotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E072A721D3D6CBF002F0BE2 /* SpotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotUITests.swift; sourceTree = "<group>"; };
 		5E072A741D3D6CBF002F0BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EA70F711D3EDB8300223BFF /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktConstants.swift; sourceTree = "<group>"; };
+		5EA70F781D3F0A8100223BFF /* TraktClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktClient.swift; sourceTree = "<group>"; };
+		5EA70F7A1D3F0A9700223BFF /* TraktConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktConvenience.swift; sourceTree = "<group>"; };
+		5EA70F7C1D3F0AE100223BFF /* TraktData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktData.swift; sourceTree = "<group>"; };
+		5EA70F861D404E6C00223BFF /* SpotDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotDiscoverViewController.swift; sourceTree = "<group>"; };
+		5EA70F881D404F7B00223BFF /* TraktSharedInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktSharedInstance.swift; sourceTree = "<group>"; };
+		5EA70F8A1D40503900223BFF /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTabBarController.swift; sourceTree = "<group>"; };
 		5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotSearchViewController.swift; sourceTree = "<group>"; };
 		5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotWatchlistViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +83,6 @@
 		5EFF6B8B1D3DD21600F7BC0E /* GothamThin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamThin.otf; sourceTree = "<group>"; };
 		5EFF6B8C1D3DD21600F7BC0E /* GothamBook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.ttf; sourceTree = "<group>"; };
 		5EFF6B8D1D3DD21600F7BC0E /* GothamMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium.otf; sourceTree = "<group>"; };
-		5EFF6B9C1D3DD44600F7BC0E /* SpotDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotDiscoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +140,7 @@
 				5EFF6B891D3DC87A00F7BC0E /* Resources */,
 				5EFF6B971D3DD21E00F7BC0E /* Fonts */,
 				5E072A591D3D6CBF002F0BE2 /* Assets.xcassets */,
+				5EA70F8A1D40503900223BFF /* GCDBlackBox.swift */,
 			);
 			path = Spot;
 			sourceTree = "<group>";
@@ -150,13 +163,32 @@
 			path = SpotUITests;
 			sourceTree = "<group>";
 		};
+		5EA70F731D3F0A3400223BFF /* Trakt.TV */ = {
+			isa = PBXGroup;
+			children = (
+				5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */,
+				5EA70F781D3F0A8100223BFF /* TraktClient.swift */,
+				5EA70F7A1D3F0A9700223BFF /* TraktConvenience.swift */,
+				5EA70F7C1D3F0AE100223BFF /* TraktData.swift */,
+				5EA70F881D404F7B00223BFF /* TraktSharedInstance.swift */,
+			);
+			name = Trakt.TV;
+			sourceTree = "<group>";
+		};
+		5EA70F741D3F0A3C00223BFF /* OMDB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OMDB;
+			sourceTree = "<group>";
+		};
 		5EFF6B7F1D3DC76100F7BC0E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */,
 				5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */,
 				5EFF6B861D3DC7D600F7BC0E /* SpotLibraryViewController.swift */,
-				5EFF6B9C1D3DD44600F7BC0E /* SpotDiscoverViewController.swift */,
+				5EA70F861D404E6C00223BFF /* SpotDiscoverViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -165,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */,
+				5EA70F711D3EDB8300223BFF /* CircularView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -183,6 +216,8 @@
 		5EFF6B8A1D3DC89D00F7BC0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5EA70F741D3F0A3C00223BFF /* OMDB */,
+				5EA70F731D3F0A3400223BFF /* Trakt.TV */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -341,12 +376,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EFF6B871D3DC7D600F7BC0E /* SpotLibraryViewController.swift in Sources */,
+				5EA70F871D404E6C00223BFF /* SpotDiscoverViewController.swift in Sources */,
+				5EA70F791D3F0A8100223BFF /* TraktClient.swift in Sources */,
 				5EFF6B851D3DC7C500F7BC0E /* SpotWatchlistViewController.swift in Sources */,
 				5E072A581D3D6CBF002F0BE2 /* Spot.xcdatamodeld in Sources */,
+				5EA70F7B1D3F0A9700223BFF /* TraktConvenience.swift in Sources */,
+				5EA70F8B1D40503900223BFF /* GCDBlackBox.swift in Sources */,
 				5E072A501D3D6CBF002F0BE2 /* AppDelegate.swift in Sources */,
+				5EA70F7D1D3F0AE100223BFF /* TraktData.swift in Sources */,
+				5EA70F761D3F0A6F00223BFF /* TraktConstants.swift in Sources */,
 				5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */,
-				5EFF6B9D1D3DD44600F7BC0E /* SpotDiscoverViewController.swift in Sources */,
+				5EA70F721D3EDB8300223BFF /* CircularView.swift in Sources */,
 				5EFF6B831D3DC7A400F7BC0E /* SpotSearchViewController.swift in Sources */,
+				5EA70F891D404F7B00223BFF /* TraktSharedInstance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +396,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFF6B9E1D3DD44600F7BC0E /* SpotDiscoverViewController.swift in Sources */,
 				5E072A681D3D6CBF002F0BE2 /* SpotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +404,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFF6B9F1D3DD44600F7BC0E /* SpotDiscoverViewController.swift in Sources */,
 				5E072A731D3D6CBF002F0BE2 /* SpotUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

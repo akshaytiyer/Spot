@@ -14,11 +14,13 @@
                         <viewControllerLayoutGuide type="bottom" id="bgE-LE-iiS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EWt-NG-cyy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Watchlist" image="Watchlist Icon" id="Z96-aV-sjp"/>
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="Watchlist Icon" id="Z96-aV-sjp">
+                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GI-EH-x6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,15 +35,38 @@
                         <viewControllerLayoutGuide type="bottom" id="i8N-FI-K19"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ugJ-oG-h4p">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Library" image="Library Icon" id="wNy-Fs-k7c"/>
+                    <tabBarItem key="tabBarItem" title="Library" image="Library Icon" id="wNy-Fs-k7c">
+                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxs-hd-dhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1444" y="-586"/>
+        </scene>
+        <!--Trends-->
+        <scene sceneID="5fr-Hv-0tE">
+            <objects>
+                <viewController id="7zP-Jq-dY2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="no8-vO-MZa"/>
+                        <viewControllerLayoutGuide type="bottom" id="9vm-Ei-4xs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ny1-Fr-QwX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Trends" image="News Icon" id="uJC-MY-1ET">
+                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ccj-le-gT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1284" y="160"/>
         </scene>
         <!--Search View-->
         <scene sceneID="hPg-J7-uM8">
@@ -52,11 +77,13 @@
                         <viewControllerLayoutGuide type="bottom" id="F11-0F-9lI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tT8-n6-GRf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="jtA-Te-VrK"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="jtA-Te-VrK">
+                        <inset key="imageInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbg-yL-HQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,7 +93,9 @@
         <scene sceneID="q93-KC-yL3">
             <objects>
                 <navigationController title="Discover Navigation Bar" id="yC9-pQ-NM4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="Discover Icon" id="ypc-mV-Q6b"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="Discover Icon" id="ypc-mV-Q6b">
+                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NoD-8o-3yf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,38 +110,70 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="ozc-iP-Q5H" kind="relationship" relationship="rootViewController" id="h9u-1t-VEF"/>
+                        <segue destination="DGI-hF-ats" kind="relationship" relationship="rootViewController" id="2Y4-yL-WIX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBv-VK-vZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-155" y="-897"/>
         </scene>
-        <!--Discover View-->
-        <scene sceneID="1ed-ip-VuY">
+        <!--DISCOVER-->
+        <scene sceneID="nL2-n2-H6P">
             <objects>
-                <viewController title="Discover View" id="ozc-iP-Q5H" customClass="SpotDiscoverViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EfA-vW-bTe"/>
-                        <viewControllerLayoutGuide type="bottom" id="md1-DK-B1I"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u6C-kR-hMT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <tableViewController id="DGI-hF-ats" customClass="SpotDiscoverViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="245" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xha-Fv-glp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="DISCOVER" id="sjR-OQ-ugv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Inz-8h-rfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverPage" rowHeight="245" id="mFz-PW-lHC">
+                                <rect key="frame" x="0.0" y="92" width="320" height="245"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mFz-PW-lHC" id="NF4-cU-4hw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-tn-Ief">
+                                            <rect key="frame" x="15" y="50" width="105" height="195"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e3f-3U-zVD">
+                                                <size key="itemSize" width="105" height="195"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoverCollectionViewCell" id="KE0-is-Hkl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="195"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="105" height="195"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DGI-hF-ats" id="HSq-Mj-SBL"/>
+                            <outlet property="delegate" destination="DGI-hF-ats" id="ex3-NU-XiI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="DISCOVER" id="dka-d5-3gp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8NU-s9-uEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264" y="-897"/>
+            <point key="canvasLocation" x="218" y="-897"/>
         </scene>
         <!--Spot Tab Bar Controller-->
         <scene sceneID="sb4-hl-ETF">
             <objects>
                 <tabBarController id="8iy-LV-zzp" customClass="SpotTabBarController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="l0W-oS-c6E">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="l0W-oS-c6E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -122,6 +183,7 @@
                         <segue destination="yC9-pQ-NM4" kind="relationship" relationship="viewControllers" id="tsm-58-EOh"/>
                         <segue destination="ZS6-Wl-jVL" kind="relationship" relationship="viewControllers" id="pBE-oz-CDO"/>
                         <segue destination="tuy-OF-VWA" kind="relationship" relationship="viewControllers" id="cCq-V1-eKH"/>
+                        <segue destination="7zP-Jq-dY2" kind="relationship" relationship="viewControllers" id="wZJ-6T-5cD"/>
                         <segue destination="OLd-DB-Nq1" kind="relationship" relationship="viewControllers" id="3Ps-ee-ii4"/>
                     </connections>
                 </tabBarController>
@@ -131,8 +193,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Discover Icon" width="30" height="30"/>
-        <image name="Library Icon" width="30" height="30"/>
-        <image name="Watchlist Icon" width="30" height="30"/>
+        <image name="Discover Icon" width="25" height="25"/>
+        <image name="Library Icon" width="25" height="25"/>
+        <image name="News Icon" width="25" height="25"/>
+        <image name="Watchlist Icon" width="25" height="25"/>
     </resources>
 </document>

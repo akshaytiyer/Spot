@@ -2,27 +2,43 @@
 //  SpotDiscoverViewController.swift
 //  Spot
 //
-//  Created by Akshay Iyer on 7/18/16.
+//  Created by Akshay Iyer on 7/20/16.
 //  Copyright © 2016 akshaytiyer. All rights reserved.
 //
 
 import UIKit
-
-class SpotDiscoverViewController: UIViewController
-{
-    override func viewDidLoad() {
-        for family: String in UIFont.familyNames()
-        {
-            print("\(family)")
-            for names: String in UIFont.fontNamesForFamilyName(family)
-            {
-                print("== \(names)")
+class SpotDiscoverViewController: UITableViewController {
+    
+    var traktData = TraktSharedInstance.sharedInstance().traktData
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        TraktClient.sharedInstance().getTraktData { (result, error) in
+            if let result = result {
+                self.traktData.append(result)
+                print(self.traktData.count)
+                print(self.traktData[0])
+                performUIUpdatesOnMain({
+                    self.tableView.reloadData()
+                })
+            }
+            else {
+                self.dismissApp()
             }
         }
-        
-        if let font = UIFont(name: "GothamMedium", size: 14) {
-            self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.init(red: 213.0/255.0, green: 227.0/255.0, blue: 227.0/255.0, alpha: 1.0)]
-        }
-
     }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return traktData.count
+    }
+
+    //Logout
+    private func dismissApp()
+    {
+        let alertController = UIAlertController(title: "Error", message: "Unexpected Server Side Error Encountered", preferredStyle: .Alert)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+        alertController.addAction(CancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
 }
