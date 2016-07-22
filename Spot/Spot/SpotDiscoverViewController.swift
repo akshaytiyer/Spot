@@ -24,11 +24,9 @@ class SpotDiscoverViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        TraktClient.sharedInstance().getTraktData { (result, error) in
+        TraktClient.sharedInstance().getTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
             if let result = result {
                 self.traktData.append(result)
-                print(self.traktData.count)
-                print(self.traktData[0])
                 performUIUpdatesOnMain({
                     self.tableView.reloadData()
                 })
@@ -68,7 +66,6 @@ class SpotDiscoverViewController: UITableViewController {
 extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        print(traktData[collectionView.tag].count)
         return traktData[collectionView.tag].count
     }
     

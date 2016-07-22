@@ -10,8 +10,9 @@ import Foundation
 
 extension TraktClient {
     
-    func getTraktData(completionHandlerForTraktData: (result: [TraktData]?, error: String?)->Void) {
-        taskForGETMethod("/trending") { (result, error) in
+    func getTraktData(discoverMovieMethodType: [String]!, completionHandlerForTraktData: (result: [TraktData]?, error: String?)->Void) {
+        for movie in discoverMovieMethodType {
+        taskForGETMethod(movie) { (result, error) in
             if let error = error {
                 completionHandlerForTraktData(result: nil, error: error)
             } else {
@@ -21,9 +22,9 @@ extension TraktClient {
                 }
                 let traktData = TraktData.traktDataFromResults(jsonData)
                 completionHandlerForTraktData(result: traktData, error: nil)
+                }
             }
         }
     }
-    
     
 }

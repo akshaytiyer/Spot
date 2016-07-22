@@ -10,6 +10,15 @@ import Foundation
 
 class TraktClient: NSObject {
     
+    var discoverMovieMethodType: [String]! = ["/trending",
+                                              //"/popular",
+                                              "/played/weekly",
+                                              "/watched/monthly",
+                                              "/collected/weekly",
+                                              "/anticipated",
+                                              "/boxoffice"]
+                                              //"/updates/2015-09-22"]
+    
     //MARK: Initializers
     override init() {
         super.init()
