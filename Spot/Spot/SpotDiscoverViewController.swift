@@ -7,27 +7,20 @@
 //
 
 import UIKit
-class SpotDiscoverViewController: UITableViewController {
+class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var activityViewController: UIActivityIndicatorView!
     
     var traktData = TraktSharedInstance.sharedInstance().traktData
     
     override func viewDidLoad() {
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        if let font = UIFont(name: "GothamMedium", size: 14) {
-            let navBarAttributesDictionary: [String: AnyObject]? = [
-                NSForegroundColorAttributeName: UIColor.init(red: 213.0/255.0, green: 227.0/255.0, blue: 227.0/255.0, alpha: 1.0),
-                NSFontAttributeName: font
-            ]
-            self.navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
-        }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        setTableViewDelegateProperties()
+        setNavigationBarTextProperties()
         TraktClient.sharedInstance().getTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
             if let result = result {
                 self.traktData.append(result)
-                performUIUpdatesOnMain({
+                performUIUpdatesOnMain({ 
                     self.tableView.reloadData()
                 })
             }
@@ -35,19 +28,25 @@ class SpotDiscoverViewController: UITableViewController {
                 self.dismissApp()
             }
         }
+
+    }
+
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return traktData.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DiscoverTableViewCell",
                                                                forIndexPath: indexPath)
         return cell
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         guard let tableViewCell = cell as? SpotDiscoverTableViewCell else { return }
         tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
     }
@@ -61,6 +60,24 @@ class SpotDiscoverViewController: UITableViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
+    //Helper Methods
+    private func setTableViewDelegateProperties()
+    {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
+    
+    private func setNavigationBarTextProperties() {
+        if let font = UIFont(name: "GothamMedium", size: 14) {
+            let navBarAttributesDictionary: [String: AnyObject]? = [
+                NSForegroundColorAttributeName: UIColor.init(red: 213.0/255.0, green: 227.0/255.0, blue: 227.0/255.0, alpha: 1.0),
+                NSFontAttributeName: font
+            ]
+            self.navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
+        }
+    }
+    
 }
 
 extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -84,5 +101,6 @@ extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionView
         guard let collectionViewCell = cell as? SpotDiscoverCollectionViewCell else { return }
         let data = traktData[collectionView.tag][indexPath.row]
         collectionViewCell.updateWithImage(data.backgroundImage)
+        collectionViewCell.addCircleView()
     }
 }

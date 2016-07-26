@@ -11,7 +11,7 @@ import Foundation
 extension TraktClient {
     
     func getTraktData(discoverMovieMethodType: [String]!, completionHandlerForTraktData: (result: [TraktData]?, error: String?)->Void) {
-        for movie in discoverMovieMethodType {
+    for movie in discoverMovieMethodType {
         taskForGETMethod(movie) { (result, error) in
             if let error = error {
                 completionHandlerForTraktData(result: nil, error: error)
@@ -21,6 +21,7 @@ extension TraktClient {
                         return
                 }
                 let traktData = TraktData.traktDataFromResults(jsonData)
+                self.traktData.append(traktData)
                 completionHandlerForTraktData(result: traktData, error: nil)
                 }
             }

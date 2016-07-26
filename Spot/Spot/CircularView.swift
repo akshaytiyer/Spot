@@ -12,6 +12,7 @@ class CircularView: UIView
 {
     var circleLayer: CAShapeLayer!
     var backgroundLayer: CAShapeLayer!
+    var shape: CAShapeLayer!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,18 +34,12 @@ class CircularView: UIView
         backgroundLayer = CAShapeLayer()
         backgroundLayer.path = circlePath2.CGPath
         backgroundLayer.fillColor = UIColor.clearColor().CGColor
-        backgroundLayer.strokeColor = UIColor.init(red: 213.0/255.0, green: 227.0/255.0, blue: 227.0/255.0, alpha: 1.0).CGColor
+        backgroundLayer.strokeColor = UIColor.grayColor().CGColor
         backgroundLayer.lineWidth = 2.0;
         
         // Don't draw the circle initially
         circleLayer.strokeEnd = 1.0
         
-        // Add the circleLayer to the view's layer's sublayers
-        layer.addSublayer(backgroundLayer)
-        layer.addSublayer(circleLayer)
-        
-        //circleLayer.path = circlePath.CGPath
-        //layer.addSublayer(circleLayer)
         
     }
     
