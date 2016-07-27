@@ -34,7 +34,7 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func updateRatingLabel(rating: Float!)
+    func updateRatingLabel(rating: Double!)
     {
         if let ratingToDisplay = rating {
             ratingLabel.text = String(ratingToDisplay)
@@ -57,23 +57,24 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
     func updateRuntimeLabel(runtime: Int!)
     {
         if let runtimeToDisplay = runtime {
-            runtimeLabel.text = String("\(runtimeToDisplay) minutes")
+            runtimeLabel.text = String("\(runtimeToDisplay) Minutes")
         }
         else {
             runtimeLabel.text = nil
         }
     }
     
-    func addCircleView() {
-        let x = 0.02*(self.imageView?.frame.height)!
+    func addCircleView(rating: Double!) {
+        let x = 0.03*(self.imageView?.frame.height)!
         let y = 0.65*(self.imageView?.frame.height)!
         let circleHeight = 0.25*(self.imageView?.frame.height)!
         let circleWidth = circleHeight
         
-        // Create a new CircleView
-        let circleView = CircularView(frame: CGRectMake(x,y,circleWidth, circleHeight))
+        //Create a new CircleView
+        let circleView = CircularView(frame: CGRectMake(x,y,circleWidth, circleHeight), percentagevalue: rating)
         
         imageView.addSubview(circleView)
+        circleView.animateCircle(1.0)
     }
 
 }

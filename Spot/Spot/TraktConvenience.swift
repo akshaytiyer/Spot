@@ -15,7 +15,6 @@ extension TraktClient {
             TraktClient.JSONParameterKeys.Extended: TraktClient.JSONParameterObjects.All
         ]
         
-        
         for (key, value) in discoverMovieMethodType {
         taskForGETMethod(value, methodParameters: methodParameters) { (result, error) in
             if let error = error {
@@ -27,7 +26,6 @@ extension TraktClient {
                 }
                 let traktData = TraktData.traktDataFromResults(jsonData)
                 self.traktData.append(traktData)
-                print(key)
                 completionHandlerForTraktData(result: traktData, title: key, error: nil)
                 }
             }

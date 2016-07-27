@@ -36,7 +36,6 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
 
     }
 
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -111,6 +110,6 @@ extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionView
         collectionViewCell.updateVotesLabel(data.votes)
         collectionViewCell.updateRatingLabel(data.rating)
         collectionViewCell.updateRuntimeLabel(data.runtime)
-        collectionViewCell.addCircleView()
+        collectionViewCell.addCircleView(data.rating)
     }
 }
