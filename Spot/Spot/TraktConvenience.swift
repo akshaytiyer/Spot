@@ -10,11 +10,16 @@ import Foundation
 
 extension TraktClient {
     
-    func getTraktData(discoverMovieMethodType: [String]!, completionHandlerForTraktData: (result: [TraktData]?, error: String?)->Void) {
-    for movie in discoverMovieMethodType {
-        taskForGETMethod(movie) { (result, error) in
+    func getDiscoverTraktData(discoverMovieMethodType: [String: String]!, completionHandlerForTraktData: (result: [TraktData]?, title: String!, error: String?)->Void) {
+        let methodParameters: [String: String] = [
+            TraktClient.JSONParameterKeys.Extended: TraktClient.JSONParameterObjects.All
+        ]
+        
+        
+        for (key, value) in discoverMovieMethodType {
+        taskForGETMethod(value, methodParameters: methodParameters) { (result, error) in
             if let error = error {
-                completionHandlerForTraktData(result: nil, error: error)
+                completionHandlerForTraktData(result: nil, title: nil, error: error)
             } else {
                 guard let jsonData = result as? [[String:AnyObject]] else {
                         print("Unable to Parse JSON Data")
@@ -22,7 +27,8 @@ extension TraktClient {
                 }
                 let traktData = TraktData.traktDataFromResults(jsonData)
                 self.traktData.append(traktData)
-                completionHandlerForTraktData(result: traktData, error: nil)
+                print(key)
+                completionHandlerForTraktData(result: traktData, title: key, error: nil)
                 }
             }
         }

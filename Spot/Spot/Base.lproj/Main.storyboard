@@ -5,6 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="GothamBook.ttf">
+            <string>GothamBook</string>
+            <string>GothamBook</string>
+            <string>GothamBook</string>
+            <string>GothamBook</string>
+            <string>GothamBook</string>
+        </mutableArray>
         <mutableArray key="GothamMedium.otf">
             <string>GothamMedium</string>
         </mutableArray>
@@ -23,9 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Watchlist" image="Watchlist Icon" id="Z96-aV-sjp">
-                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="Watchlist Icon" id="Z96-aV-sjp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GI-EH-x6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,9 +49,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Library" image="Library Icon" id="wNy-Fs-k7c">
-                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Library" image="Library Icon" id="wNy-Fs-k7c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxs-hd-dhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,9 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trends" image="News Icon" id="uJC-MY-1ET">
-                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Trends" image="News Icon" id="uJC-MY-1ET"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ccj-le-gT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +88,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="jtA-Te-VrK">
-                        <inset key="imageInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbg-yL-HQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,9 +99,7 @@
         <scene sceneID="q93-KC-yL3">
             <objects>
                 <navigationController title="Discover Navigation Bar" id="yC9-pQ-NM4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="Discover Icon" id="ypc-mV-Q6b">
-                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Discover" image="Discover Icon" id="ypc-mV-Q6b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NoD-8o-3yf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -172,6 +171,36 @@
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sg3-fw-jNV">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="195"/>
                                                                             </imageView>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="74,029" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RH-eg-FgR">
+                                                                                <rect key="frame" x="67" y="130" width="55" height="9"/>
+                                                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="9"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Runtime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-ad-8Ab">
+                                                                                <rect key="frame" x="67" y="140" width="30" height="7"/>
+                                                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="7"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1,713,729" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRl-8k-tPj">
+                                                                                <rect key="frame" x="67" y="161" width="55" height="9"/>
+                                                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="9"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.235" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHs-zR-TRd">
+                                                                                <rect key="frame" x="15" y="151" width="26" height="9"/>
+                                                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="9"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkP-qU-P2Z">
+                                                                                <rect key="frame" x="67" y="171" width="21" height="7"/>
+                                                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="7"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <constraints>
@@ -193,6 +222,9 @@
                                                             <connections>
                                                                 <outlet property="collectionView" destination="JcG-H0-Qxf" id="iqt-6s-ReE"/>
                                                                 <outlet property="imageView" destination="Sg3-fw-jNV" id="g4g-hQ-ho9"/>
+                                                                <outlet property="ratingLabel" destination="CHs-zR-TRd" id="LgG-Oq-Hgi"/>
+                                                                <outlet property="runtimeLabel" destination="6RH-eg-FgR" id="fVu-u8-qNY"/>
+                                                                <outlet property="votesLabel" destination="zRl-8k-tPj" id="IcV-5d-Adl"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -218,6 +250,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="collectionView" destination="y5w-tn-Ief" id="QHL-eL-zS9"/>
+                                            <outlet property="titleLabel" destination="VNg-Xz-UBw" id="owP-8L-yVm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -249,7 +282,7 @@
             <objects>
                 <tabBarController id="8iy-LV-zzp" customClass="SpotTabBarController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="l0W-oS-c6E">
+                    <tabBar key="tabBar" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="l0W-oS-c6E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

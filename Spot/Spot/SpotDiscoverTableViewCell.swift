@@ -10,7 +10,19 @@ import UIKit
 
 class SpotDiscoverTableViewCell: UITableViewCell {
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    
+    func setCollectionViewTitle(key: String!)
+    {
+        if let titleToDisplay = key {
+            titleLabel.text = String(titleToDisplay)
+        }
+        else {
+            titleLabel.text = nil
+        }
+    }
     
     func setCollectionViewDataSourceDelegate
         <D: protocol<UICollectionViewDataSource, UICollectionViewDelegate>>

@@ -39,8 +39,8 @@ class CircularView: UIView
         
         // Don't draw the circle initially
         circleLayer.strokeEnd = 1.0
-        
-        
+        layer.addSublayer(backgroundLayer)
+        layer.addSublayer(circleLayer)
     }
     
     

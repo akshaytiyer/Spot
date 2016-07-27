@@ -13,14 +13,19 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var activityViewController: UIActivityIndicatorView!
     
     var traktData = TraktSharedInstance.sharedInstance().traktData
+    var key: [String] = [String]()
     
     override func viewDidLoad() {
         setTableViewDelegateProperties()
         setNavigationBarTextProperties()
-        TraktClient.sharedInstance().getTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
+        TraktClient.sharedInstance().getDiscoverTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, title, error) in
+            if let title = title {
+                self.key.append(title)
+            }
             if let result = result {
                 self.traktData.append(result)
-                performUIUpdatesOnMain({ 
+                //self.key.append(key)
+                performUIUpdatesOnMain({
                     self.tableView.reloadData()
                 })
             }
@@ -48,6 +53,8 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         guard let tableViewCell = cell as? SpotDiscoverTableViewCell else { return }
+        let keyValue = self.key[indexPath.row]
+        tableViewCell.setCollectionViewTitle(keyValue)
         tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
     }
 
@@ -101,6 +108,9 @@ extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionView
         guard let collectionViewCell = cell as? SpotDiscoverCollectionViewCell else { return }
         let data = traktData[collectionView.tag][indexPath.row]
         collectionViewCell.updateWithImage(data.backgroundImage)
+        collectionViewCell.updateVotesLabel(data.votes)
+        collectionViewCell.updateRatingLabel(data.rating)
+        collectionViewCell.updateRuntimeLabel(data.runtime)
         collectionViewCell.addCircleView()
     }
 }

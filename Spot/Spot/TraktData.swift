@@ -13,15 +13,23 @@ struct TraktData {
     let traktId: Int!
     let title: String!
     let tmdbId: Int!
+    let slug: String!
+    let rating: Float!
+    let votes: Int!
+    let runtime: Int!
     let backgroundImagePath: String!
     let backgroundImage: UIImage!
     //MARK: Initializers
     
     //Construct a data from a dictionary
-    init(traktId: Int!, title: String!, tmdbId: Int!, backgroundImagePath: String!, backgroundImage: UIImage!) {
+    init(traktId: Int!, title: String!, tmdbId: Int!, slug: String!, rating: Float!, votes: Int!, runtime: Int!, backgroundImagePath: String!, backgroundImage: UIImage!) {
         self.traktId = traktId
         self.title = title
         self.tmdbId = tmdbId
+        self.slug = slug
+        self.rating = rating
+        self.votes = votes
+        self.runtime = runtime
         self.backgroundImagePath = backgroundImagePath
         self.backgroundImage = backgroundImage
     }
@@ -40,7 +48,7 @@ struct TraktData {
             }
             let url = NSURL(string: (poster["thumb"] as? String)!)
             let image = NSData.init(contentsOfURL: url!)
-            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, backgroundImagePath: poster["thumb"] as? String, backgroundImage: UIImage(data: image!)))
+            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, slug: idData["slug"] as? String, rating: movieData["rating"] as? Float, votes: movieData["votes"] as? Int, runtime: movieData["runtime"] as? Int, backgroundImagePath: poster["thumb"] as? String, backgroundImage: UIImage(data: image!)))
         }
         return trakt
     }

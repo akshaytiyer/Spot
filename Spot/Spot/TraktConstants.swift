@@ -42,6 +42,7 @@ extension TraktClient {
     struct JSONParameterObjects {
         static let Images = "images"
         static let Full = "full"
+        static let All = "full,images"
     }
     
     //MARK: JSON Response Keys

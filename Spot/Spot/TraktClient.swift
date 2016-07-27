@@ -10,14 +10,13 @@ import Foundation
 
 class TraktClient: NSObject {
     
-    var discoverMovieMethodType: [String]! = ["/trending",
-                                              //"/popular",
-                                              "/played/weekly",
-                                              "/watched/monthly",
-                                              "/collected/weekly",
-                                              //"/anticipated",
-                                              "/boxoffice"]
-                                              //"/updates/2015-09-22"]
+    var discoverMovieMethodType: [String: String]! =    ["Trending Movies": "/trending",
+                                                      "Most Played Movies": "/played/weekly",
+                                                     "Most Watched Movies": "/watched/monthly",
+                                                   "Most Collected Movies": "/collected/weekly",
+                                                      "Anticipated Movies": "/anticipated",
+                                                       "Box Office Movies": "/boxoffice"]
+                                                //"/updates/2015-09-22"]
     
     
     var traktData = TraktSharedInstance.sharedInstance().traktData
@@ -28,13 +27,12 @@ class TraktClient: NSObject {
     }
     
     //MARK: GET
-    func taskForGETMethod(method: String!, completionHandlerForGET: (result: AnyObject!, error: String!) -> Void) -> NSURLSessionTask {
-        let methodParameters: [String: String] = [
-            TraktClient.JSONParameterKeys.Extended: TraktClient.JSONParameterObjects.Images ]
+    func taskForGETMethod(method: String!, methodParameters: [String: String]!, completionHandlerForGET: (result: AnyObject!, error: String!) -> Void) -> NSURLSessionTask {
         let request = NSMutableURLRequest(URL: parseURLFromParameters(methodParameters, withPathExtension: method))
         request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
         request.addValue(TraktClient.Constants.TraktAPIVersion, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIVersion)
         request.addValue(TraktClient.Constants.TraktAPIKey, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIKey)
+        print(request)
         let task = AppDelegate.sharedInstance().session.dataTaskWithRequest(request) { (data, response, error) in
             //MARK: Error Handling
             func sendError(error: String) {
