@@ -41,7 +41,6 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.traktData.count)
         return self.traktData.count
     }
     
@@ -54,6 +53,7 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         guard let tableViewCell = cell as? SpotDiscoverTableViewCell else { return }
         let keyValue = self.traktKey[indexPath.row]
+        tableViewCell.selectionStyle = UITableViewCellSelectionStyle.None
         tableViewCell.setCollectionViewTitle(keyValue)
         tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
     }

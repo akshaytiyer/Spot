@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8iy-LV-zzp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EaM-KD-QKg">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="GothamBook.ttf">
+            <string>GothamBook</string>
             <string>GothamBook</string>
             <string>GothamBook</string>
             <string>GothamBook</string>
@@ -96,6 +97,47 @@
             </objects>
             <point key="canvasLocation" x="-679" y="442"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Lkp-ST-FPL">
+            <objects>
+                <viewController id="EaM-KD-QKg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="omn-QU-kv9"/>
+                        <viewControllerLayoutGuide type="bottom" id="hu3-VF-Ark"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kRH-T4-tey">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background Image" translatesAutoresizingMaskIntoConstraints="NO" id="1y7-N3-KUk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPn-FJ-KbA">
+                                <rect key="frame" x="36" y="472" width="248" height="43"/>
+                                <state key="normal" image="Login Button"/>
+                                <connections>
+                                    <segue destination="8iy-LV-zzp" kind="show" id="Ec1-zR-BH0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="1y7-N3-KUk" secondAttribute="bottom" id="0Mb-Ol-oN7"/>
+                            <constraint firstItem="hu3-VF-Ark" firstAttribute="top" secondItem="HPn-FJ-KbA" secondAttribute="bottom" constant="53" id="5jm-9n-HZT"/>
+                            <constraint firstItem="1y7-N3-KUk" firstAttribute="top" secondItem="kRH-T4-tey" secondAttribute="top" id="DZJ-T4-18z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HPn-FJ-KbA" secondAttribute="trailing" constant="20" id="FPi-3p-Uaq"/>
+                            <constraint firstItem="HPn-FJ-KbA" firstAttribute="leading" secondItem="kRH-T4-tey" secondAttribute="leadingMargin" constant="20" id="Lrt-Q7-A2b"/>
+                            <constraint firstItem="HPn-FJ-KbA" firstAttribute="top" secondItem="omn-QU-kv9" secondAttribute="bottom" constant="452" id="SRw-DV-N8D"/>
+                            <constraint firstAttribute="trailing" secondItem="1y7-N3-KUk" secondAttribute="trailing" id="lhu-h6-j5N"/>
+                            <constraint firstItem="1y7-N3-KUk" firstAttribute="leading" secondItem="kRH-T4-tey" secondAttribute="leading" id="uU6-kf-DQD"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Caj-1E-ktI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-713" y="-1338"/>
+        </scene>
         <!--Discover Navigation Bar-->
         <scene sceneID="q93-KC-yL3">
             <objects>
@@ -104,6 +146,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="NoD-8o-3yf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="GothamMedium" family="GothamMedium" pointSize="14"/>
@@ -134,20 +177,26 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="275" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pge-dH-T7V">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="285" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pge-dH-T7V">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverTableViewCell" rowHeight="275" id="Dsu-Wu-NlV" customClass="SpotDiscoverTableViewCell" customModule="Spot" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="275"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverTableViewCell" rowHeight="285" id="Dsu-Wu-NlV" customClass="SpotDiscoverTableViewCell" customModule="Spot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="285"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dsu-Wu-NlV" id="OMW-s0-pqP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="274"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-tn-Ief">
-                                                    <rect key="frame" x="0.0" y="50" width="320" height="195"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNg-Xz-UBw">
+                                                    <rect key="frame" x="15" y="20" width="305" height="22"/>
+                                                    <fontDescription key="fontDescription" name="GothamMedium" family="GothamMedium" pointSize="20"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-tn-Ief">
+                                                    <rect key="frame" x="0.0" y="59" width="320" height="195"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e3f-3U-zVD">
                                                         <size key="itemSize" width="130" height="191"/>
@@ -169,13 +218,13 @@
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sg3-fw-jNV">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="195"/>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="74,029" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RH-eg-FgR">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="74,029" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RH-eg-FgR">
                                                                                 <rect key="frame" x="67" y="130" width="63" height="9"/>
                                                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Runtime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-ad-8Ab">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Runtime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-ad-8Ab">
                                                                                 <rect key="frame" x="67" y="140" width="55" height="7"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="7" id="tRB-50-Ogl"/>
@@ -184,7 +233,7 @@
                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,713,729" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRl-8k-tPj">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1,713,729" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRl-8k-tPj">
                                                                                 <rect key="frame" x="67" y="161" width="68" height="9"/>
                                                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -196,11 +245,14 @@
                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkP-qU-P2Z">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkP-qU-P2Z">
                                                                                 <rect key="frame" x="67" y="171" width="55" height="7"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="7" id="VgN-78-L3e"/>
-                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="8"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCa-jJ-eDo">
+                                                                                <rect key="frame" x="17" y="176" width="26" height="8"/>
                                                                                 <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="8"/>
                                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -243,23 +295,18 @@
                                                                 <outlet property="ratingLabel" destination="CHs-zR-TRd" id="LgG-Oq-Hgi"/>
                                                                 <outlet property="runtimeLabel" destination="6RH-eg-FgR" id="fVu-u8-qNY"/>
                                                                 <outlet property="votesLabel" destination="zRl-8k-tPj" id="IcV-5d-Adl"/>
+                                                                <segue destination="hS2-Kw-5Y9" kind="show" id="xe7-Az-KRE"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNg-Xz-UBw">
-                                                    <rect key="frame" x="15" y="20" width="305" height="22"/>
-                                                    <fontDescription key="fontDescription" name="GothamMedium" family="GothamMedium" pointSize="20"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="y5w-tn-Ief" firstAttribute="leading" secondItem="OMW-s0-pqP" secondAttribute="leading" id="Ed4-dm-Gk5"/>
-                                                <constraint firstItem="y5w-tn-Ief" firstAttribute="top" secondItem="VNg-Xz-UBw" secondAttribute="bottom" constant="8" id="L2c-0T-1vH"/>
+                                                <constraint firstItem="y5w-tn-Ief" firstAttribute="top" secondItem="VNg-Xz-UBw" secondAttribute="bottom" constant="17" id="L2c-0T-1vH"/>
                                                 <constraint firstAttribute="trailing" secondItem="VNg-Xz-UBw" secondAttribute="trailing" id="QQr-F3-GSD"/>
-                                                <constraint firstAttribute="bottom" secondItem="y5w-tn-Ief" secondAttribute="bottom" constant="29" id="YSw-my-fqt"/>
+                                                <constraint firstAttribute="bottom" secondItem="y5w-tn-Ief" secondAttribute="bottom" constant="20" id="YSw-my-fqt"/>
                                                 <constraint firstItem="VNg-Xz-UBw" firstAttribute="top" secondItem="OMW-s0-pqP" secondAttribute="top" constant="20" id="hFm-oQ-B6K"/>
                                                 <constraint firstAttribute="trailing" secondItem="y5w-tn-Ief" secondAttribute="trailing" id="kwr-vJ-Bgg"/>
                                                 <constraint firstItem="VNg-Xz-UBw" firstAttribute="leading" secondItem="OMW-s0-pqP" secondAttribute="leading" constant="15" id="uBe-ZC-6fs"/>
@@ -285,7 +332,9 @@
                             <constraint firstAttribute="trailing" secondItem="pge-dH-T7V" secondAttribute="trailing" id="oaG-Y7-ZLT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="DISCOVER" id="Jb4-WH-I1G"/>
+                    <navigationItem key="navigationItem" title="DISCOVER" id="Jb4-WH-I1G">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2RM-a7-0Ax"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="activityViewController" destination="TTF-sK-U61" id="BMJ-HR-la3"/>
@@ -295,6 +344,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ate-m5-gIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="595" y="-1506"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GwI-XU-pLB">
+            <objects>
+                <viewController id="hS2-Kw-5Y9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tRj-8G-YgR"/>
+                        <viewControllerLayoutGuide type="bottom" id="0b6-tT-eR8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p9P-R1-xsp">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHm-nB-WqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1158" y="-1490"/>
         </scene>
         <!--Spot Tab Bar Controller-->
         <scene sceneID="sb4-hl-ETF">
@@ -321,8 +388,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background Image" width="320" height="568"/>
         <image name="Discover Icon" width="25" height="25"/>
         <image name="Library Icon" width="25" height="25"/>
+        <image name="Login Button" width="240" height="43"/>
         <image name="News Icon" width="25" height="25"/>
         <image name="Watchlist Icon" width="25" height="25"/>
     </resources>
