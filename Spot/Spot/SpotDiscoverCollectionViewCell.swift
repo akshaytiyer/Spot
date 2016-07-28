@@ -18,11 +18,18 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
     
     var overlay: UIView!
     
+    func formatNumber(rating: Double!) ->  String! {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .PercentStyle
+        return formatter.stringFromNumber(rating/10)
+    }
+    
+    
     func updateWithImage(image: UIImage?) {
         if let imageToDisplay = image {
             overlay = UIView.init(frame: CGRectMake(0, 0.6*(self.imageView?.frame.height)!, (self.imageView?.frame.width)!,0.4*(self.imageView?.frame.height)!))
             overlay.backgroundColor = UIColor.blackColor()
-            overlay.alpha = 0.75
+            overlay.alpha = 0.85
             for view in imageView.subviews {
                 view.removeFromSuperview()
             }
@@ -37,7 +44,7 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
     func updateRatingLabel(rating: Double!)
     {
         if let ratingToDisplay = rating {
-            ratingLabel.text = String(ratingToDisplay)
+            ratingLabel.text = formatNumber(ratingToDisplay)
         }
         else {
             ratingLabel.text = nil
@@ -58,6 +65,7 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
     {
         if let runtimeToDisplay = runtime {
             runtimeLabel.text = String("\(runtimeToDisplay) Minutes")
+            
         }
         else {
             runtimeLabel.text = nil

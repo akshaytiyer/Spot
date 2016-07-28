@@ -12,28 +12,28 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var tableView: UITableView!
     @IBOutlet var activityViewController: UIActivityIndicatorView!
     
-    var traktData = TraktSharedInstance.sharedInstance().traktData
-    var key: [String] = [String]()
+    var traktData: [[TraktData]] = [[TraktData]]()
+    var traktKey: [String] = [String]()
+    
     
     override func viewDidLoad() {
         setTableViewDelegateProperties()
         setNavigationBarTextProperties()
-        TraktClient.sharedInstance().getDiscoverTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, title, error) in
-            if let title = title {
-                self.key.append(title)
-            }
-            if let result = result {
-                self.traktData.append(result)
-                //self.key.append(key)
+        activityViewController.hidesWhenStopped = true
+        activityViewController.startAnimating()
+        TraktClient.sharedInstance().getDiscoverTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
+            if result == true {
+                self.traktData = TraktSharedInstance.sharedInstance().traktData
+                self.traktKey = TraktSharedInstance.sharedInstance().traktKey
                 performUIUpdatesOnMain({
                     self.tableView.reloadData()
+                    self.activityViewController.stopAnimating()
                 })
             }
             else {
                 self.dismissApp()
             }
         }
-
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -41,7 +41,8 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return traktData.count
+        print(self.traktData.count)
+        return self.traktData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -52,7 +53,7 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         guard let tableViewCell = cell as? SpotDiscoverTableViewCell else { return }
-        let keyValue = self.key[indexPath.row]
+        let keyValue = self.traktKey[indexPath.row]
         tableViewCell.setCollectionViewTitle(keyValue)
         tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
     }

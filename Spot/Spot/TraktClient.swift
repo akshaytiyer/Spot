@@ -19,8 +19,6 @@ class TraktClient: NSObject {
                                                 //"/updates/2015-09-22"]
     
     
-    var traktData = TraktSharedInstance.sharedInstance().traktData
-    
     //MARK: Initializers
     override init() {
         super.init()
@@ -31,7 +29,7 @@ class TraktClient: NSObject {
         let request = NSMutableURLRequest(URL: parseURLFromParameters(methodParameters, withPathExtension: method))
         request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
         request.addValue(TraktClient.Constants.TraktAPIVersion, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIVersion)
-        request.addValue(TraktClient.Constants.TraktAPIKey, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIKey)  
+        request.addValue(TraktClient.Constants.TraktAPIKey, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIKey)
         let task = AppDelegate.sharedInstance().session.dataTaskWithRequest(request) { (data, response, error) in
             //MARK: Error Handling
             func sendError(error: String) {
