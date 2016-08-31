@@ -117,7 +117,6 @@
                                 <state key="normal" image="Login Button"/>
                                 <connections>
                                     <action selector="loginButton:" destination="EaM-KD-QKg" eventType="touchUpInside" id="MqM-HH-eLP"/>
-                                    <segue destination="8iy-LV-zzp" kind="show" id="Ec1-zR-BH0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -139,20 +138,20 @@
             </objects>
             <point key="canvasLocation" x="-649" y="-1920"/>
         </scene>
-        <!--View Controller-->
+        <!--TraktAuthenticationViewController-->
         <scene sceneID="tei-tl-eLi">
             <objects>
-                <viewController id="gxf-cF-qAt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TraktAuthenticationViewController" title="TraktAuthenticationViewController" id="gxf-cF-qAt" customClass="TraktAuthenticationViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k0k-gH-OAZ"/>
                         <viewControllerLayoutGuide type="bottom" id="jhP-Mx-Ynf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zUZ-ql-4s7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1DC-5u-Rz8">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                         </subviews>
@@ -164,10 +163,14 @@
                             <constraint firstAttribute="trailing" secondItem="1DC-5u-Rz8" secondAttribute="trailing" id="xnO-ua-xqi"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="webView" destination="1DC-5u-Rz8" id="LXx-uf-ab7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7K8-n3-CtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114" y="-1907"/>
+            <point key="canvasLocation" x="-207" y="-1920"/>
         </scene>
         <!--Discover Navigation Bar-->
         <scene sceneID="q93-KC-yL3">

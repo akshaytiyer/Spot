@@ -11,6 +11,9 @@ import UIKit
 class SpotLoginViewController: UIViewController {
     
     @IBAction func loginButton(sender: AnyObject) {
-        
+        TraktClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
+
+        }
+
     }
 }
