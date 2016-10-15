@@ -10,7 +10,7 @@ import UIKit
 
 class SpotLibraryViewController: UIViewController
 {
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //addCircleView()
     }

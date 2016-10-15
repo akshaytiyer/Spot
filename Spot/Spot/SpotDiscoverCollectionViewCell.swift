@@ -18,17 +18,17 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
     
     var overlay: UIView!
     
-    func formatNumber(rating: Double!) ->  String! {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .PercentStyle
-        return formatter.stringFromNumber(rating/10)
+    func formatNumber(_ rating: Double!) ->  String! {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        return formatter.string(from: NSNumber(value: rating/10))
     }
     
     
-    func updateWithImage(image: UIImage?) {
+    func updateWithImage(_ image: UIImage?) {
         if let imageToDisplay = image {
-            overlay = UIView.init(frame: CGRectMake(0, 0.6*(self.imageView?.frame.height)!, (self.imageView?.frame.width)!,0.4*(self.imageView?.frame.height)!))
-            overlay.backgroundColor = UIColor.blackColor()
+            overlay = UIView.init(frame: CGRect(x: 0, y: 0.6*(self.imageView?.frame.height)!, width: (self.imageView?.frame.width)!,height: 0.4*(self.imageView?.frame.height)!))
+            overlay.backgroundColor = UIColor.black
             overlay.alpha = 0.85
             for view in imageView.subviews {
                 view.removeFromSuperview()
@@ -41,7 +41,7 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func updateRatingLabel(rating: Double!)
+    func updateRatingLabel(_ rating: Double!)
     {
         if let ratingToDisplay = rating {
             ratingLabel.text = formatNumber(ratingToDisplay)
@@ -51,7 +51,7 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func updateVotesLabel(votes: Int!)
+    func updateVotesLabel(_ votes: Int!)
     {
         if let votesToDisplay = votes {
             votesLabel.text = String(votesToDisplay)
@@ -61,7 +61,7 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func updateRuntimeLabel(runtime: Int!)
+    func updateRuntimeLabel(_ runtime: Int!)
     {
         if let runtimeToDisplay = runtime {
             runtimeLabel.text = String("\(runtimeToDisplay) Minutes")
@@ -72,14 +72,14 @@ class SpotDiscoverCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func addCircleView(rating: Double!) {
+    func addCircleView(_ rating: Double!) {
         let x = 0.03*(self.imageView?.frame.height)!
         let y = 0.65*(self.imageView?.frame.height)!
         let circleHeight = 0.25*(self.imageView?.frame.height)!
         let circleWidth = circleHeight
         
         //Create a new CircleView
-        let circleView = CircularView(frame: CGRectMake(x,y,circleWidth, circleHeight), percentagevalue: rating)
+        let circleView = CircularView(frame: CGRect(x: x,y: y,width: circleWidth, height: circleHeight), percentagevalue: rating)
         
         imageView.addSubview(circleView)
         circleView.animateCircle(1.0)

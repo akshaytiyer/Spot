@@ -14,6 +14,6 @@ class SpotTabBarController: UITabBarController
         super.viewDidLoad()
         self.tabBar.shadowImage = UIImage()
         self.tabBar.tintColor = UIColor.init(red: 30.0/255.0, green: 215.0/255.0, blue: 96.0/255.0, alpha: 1.0)
-        self.tabBar.translucent = true
+        self.tabBar.isTranslucent = true
     }
 }

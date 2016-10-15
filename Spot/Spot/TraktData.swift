@@ -19,6 +19,7 @@ struct TraktData {
     let runtime: Int!
     let backgroundImagePath: String!
     let backgroundImage: UIImage!
+    
     //MARK: Initializers
     
     //Construct a data from a dictionary
@@ -35,7 +36,8 @@ struct TraktData {
     }
     
     //MARK: Helper Method
-    static func traktDataFromResults(results: [[String: AnyObject]]) -> [TraktData] {
+    static func traktDataFromResults(_ results: [[String: AnyObject]]) -> [TraktData] {
+        var image: UIImage!
         var trakt = [TraktData]()
         for result in results {
             guard let movieData = result["movie"] as? [String: AnyObject],
@@ -46,9 +48,15 @@ struct TraktData {
                   let idData = movieData["ids"] as? [String: AnyObject] else {
                 return trakt
             }
-            let url = NSURL(string: (poster["thumb"] as? String)!)
-            let image = NSData.init(contentsOfURL: url!)
-            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes: movieData["votes"] as? Int, runtime: movieData["runtime"] as? Int, backgroundImagePath: poster["thumb"] as? String, backgroundImage: UIImage(data: image!)))
+            let url = URL(string: (poster["thumb"] as? String)!)
+            let imageFromData = NSData(contentsOf: url!)
+            if imageFromData != nil {
+                image = UIImage(data: imageFromData as! Data)
+            }
+            else {
+                image = UIImage(named: "The Dark Knight")
+            }
+            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes: movieData["votes"] as? Int, runtime: movieData["runtime"] as? Int, backgroundImagePath: poster["thumb"] as? String, backgroundImage: image))
         }
         return trakt
     }

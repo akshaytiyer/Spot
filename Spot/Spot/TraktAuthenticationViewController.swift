@@ -12,9 +12,9 @@ class TraktAuthenticationViewController: UIViewController
 
 {
     // MARK: Properties
-    var urlRequest: NSURLRequest? = nil
+    var urlRequest: URLRequest? = nil
     var requestToken: String? = nil
-    var completionHandlerForView: ((success: Bool, errorString: String?) -> Void)? = nil
+    var completionHandlerForView: ((_ success: Bool, _ errorString: String?) -> Void)? = nil
     
     // MARK: Outlets
     @IBOutlet weak var webView: UIWebView!
@@ -27,10 +27,10 @@ class TraktAuthenticationViewController: UIViewController
         //webView.delegate = self
         
         navigationItem.title = "Trakt Authentication"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(cancelAuth))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAuth))
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let urlRequest = urlRequest {
@@ -43,7 +43,7 @@ class TraktAuthenticationViewController: UIViewController
     // MARK: Cancel Auth Flow
     
     func cancelAuth() {
-        print(webView.request?.URL)
-        dismissViewControllerAnimated(true, completion: nil)
+        print(webView.request?.url)
+        dismiss(animated: true, completion: nil)
     }
 }

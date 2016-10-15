@@ -16,7 +16,7 @@ class CircularView: UIView
 
     init(frame: CGRect, percentagevalue: Double!) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         // Use UIBezierPath as an easy way to create the CGPath for the layer.
         // The path should be the entire circle.
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 10)/2, startAngle: CGFloat(-0.5 * M_PI), endAngle: CGFloat((2.0 * M_PI * percentagevalue/10) - (0.5 * M_PI)), clockwise: true)
@@ -25,16 +25,16 @@ class CircularView: UIView
         
         // Setup the CAShapeLayer with the path, colors, and line width
         circleLayer = CAShapeLayer()
-        circleLayer.path = circlePath.CGPath
-        circleLayer.fillColor = UIColor.clearColor().CGColor
-        circleLayer.strokeColor = UIColor.init(red: 30.0/255.0, green: 215.0/255.0, blue: 96.0/255.0, alpha: 1.0).CGColor
+        circleLayer.path = circlePath.cgPath
+        circleLayer.fillColor = UIColor.clear.cgColor
+        circleLayer.strokeColor = UIColor.init(red: 30.0/255.0, green: 215.0/255.0, blue: 96.0/255.0, alpha: 1.0).cgColor
         circleLayer.lineWidth = 3.0;
         
         // Setup the CAShapeLayer with the path, colors, and line width
         backgroundLayer = CAShapeLayer()
-        backgroundLayer.path = circlePath2.CGPath
-        backgroundLayer.fillColor = UIColor.clearColor().CGColor
-        backgroundLayer.strokeColor = UIColor.grayColor().CGColor
+        backgroundLayer.path = circlePath2.cgPath
+        backgroundLayer.fillColor = UIColor.clear.cgColor
+        backgroundLayer.strokeColor = UIColor.gray.cgColor
         backgroundLayer.lineWidth = 3.0;
         
         // Don't draw the circle initially
@@ -49,7 +49,7 @@ class CircularView: UIView
         super.init(coder: aDecoder)
     }
     
-    func animateCircle(duration: NSTimeInterval) {
+    func animateCircle(_ duration: TimeInterval) {
         // We want to animate the strokeEnd property of the circleLayer
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         
@@ -68,7 +68,7 @@ class CircularView: UIView
         circleLayer.strokeEnd = 1.0
         
         // Do the actual animation
-        circleLayer.addAnimation(animation, forKey: "animateCircle")
+        circleLayer.add(animation, forKey: "animateCircle")
     }
     
 }

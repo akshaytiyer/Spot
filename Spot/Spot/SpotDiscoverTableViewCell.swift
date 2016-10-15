@@ -11,10 +11,20 @@ import UIKit
 class SpotDiscoverTableViewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
     
     
-    func setCollectionViewTitle(key: String!)
+    var collectionViewOffset: CGFloat {
+        get {
+            return collectionView.contentOffset.x
+        }
+        
+        set {
+            collectionView.contentOffset.x = newValue
+        }
+    }
+    
+    func setCollectionViewTitle(_ key: String!)
     {
         if let titleToDisplay = key {
             titleLabel.text = String(titleToDisplay)
@@ -25,8 +35,8 @@ class SpotDiscoverTableViewCell: UITableViewCell {
     }
     
     func setCollectionViewDataSourceDelegate
-        <D: protocol<UICollectionViewDataSource, UICollectionViewDelegate>>
-        (dataSourceDelegate: D, forRow row: Int) {
+        <D: UICollectionViewDataSource & UICollectionViewDelegate >
+        (_ dataSourceDelegate: D, forRow row: Int) {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row
