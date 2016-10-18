@@ -14,6 +14,7 @@
 		5E072A5D1D3D6CBF002F0BE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E072A5B1D3D6CBF002F0BE2 /* LaunchScreen.storyboard */; };
 		5E072A681D3D6CBF002F0BE2 /* SpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E072A671D3D6CBF002F0BE2 /* SpotTests.swift */; };
 		5E072A731D3D6CBF002F0BE2 /* SpotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E072A721D3D6CBF002F0BE2 /* SpotUITests.swift */; };
+		5E84E1A21DB401D500A19006 /* TraktAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E84E1A11DB401D500A19006 /* TraktAccessToken.swift */; };
 		5EA70F721D3EDB8300223BFF /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F711D3EDB8300223BFF /* CircularView.swift */; };
 		5EA70F761D3F0A6F00223BFF /* TraktConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */; };
 		5EA70F791D3F0A8100223BFF /* TraktClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F781D3F0A8100223BFF /* TraktClient.swift */; };
@@ -72,6 +73,7 @@
 		5E072A6E1D3D6CBF002F0BE2 /* SpotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E072A721D3D6CBF002F0BE2 /* SpotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotUITests.swift; sourceTree = "<group>"; };
 		5E072A741D3D6CBF002F0BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E84E1A11DB401D500A19006 /* TraktAccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktAccessToken.swift; sourceTree = "<group>"; };
 		5EA70F711D3EDB8300223BFF /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktConstants.swift; sourceTree = "<group>"; };
 		5EA70F781D3F0A8100223BFF /* TraktClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktClient.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				5EA70F7C1D3F0AE100223BFF /* TraktData.swift */,
 				5EA70F881D404F7B00223BFF /* TraktSharedInstance.swift */,
 				5EAA99F81D762C9C00AFCC45 /* TraktAuthenticationViewController.swift */,
+				5E84E1A11DB401D500A19006 /* TraktAccessToken.swift */,
 			);
 			name = Trakt.TV;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				5EFF6B851D3DC7C500F7BC0E /* SpotWatchlistViewController.swift in Sources */,
 				5E072A581D3D6CBF002F0BE2 /* Spot.xcdatamodeld in Sources */,
 				5EA70F7B1D3F0A9700223BFF /* TraktConvenience.swift in Sources */,
+				5E84E1A21DB401D500A19006 /* TraktAccessToken.swift in Sources */,
 				5EA70F8B1D40503900223BFF /* GCDBlackBox.swift in Sources */,
 				5E072A501D3D6CBF002F0BE2 /* AppDelegate.swift in Sources */,
 				5EAA99F91D762C9C00AFCC45 /* TraktAuthenticationViewController.swift in Sources */,

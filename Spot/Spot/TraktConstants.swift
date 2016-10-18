@@ -20,29 +20,42 @@ extension TraktClient {
         //MARK: URL
         static let ApiScheme = "https"
         static let ApiHost = "api.trakt.tv"
-        static let ApiPath = "/movies"
     }
     
+    //MARK: HTTP Header Fields
     struct HTTPHeaderFields {
         static let TraktAPIKey = "trakt-api-key"
         static let TraktAPIVersion = "trakt-api-version"
         static let ContentType = "Content-Type"
     }
     
-    struct ImageSizes {
-        static let DiscoverPageSize = ""
-    }
-    
     //MARK: JSON Parameter Keys
-    struct JSONParameterKeys {
+    struct ParameterKeys {
         static let Extended = "extended"
     }
     
     //MARK: JSON Parameter Objects
-    struct JSONParameterObjects {
+    struct ParameterObjects {
         static let Images = "images"
         static let Full = "full"
         static let All = "full,images"
+    }
+    
+    //MARK: JSON Body Keys
+    struct JSONBodyKeys {
+        static let Code = "code"
+        static let ClientID = "client_id"
+        static let ClientSecret = "client_secret"
+        static let RedirectURI = "redirect_uri"
+        static let GrantType = "grant_type"
+    }
+    
+    //MARK: JSON Body Values
+    struct JSONBodyValues {
+        static let ClientID = "908a52fa653e47e98503c7c2887923fbec904970959d01cca9455326b886d701"
+        static let ClientSecret = "e2c9fc75765dd60995c0e494bc9469a25753da7b36291398dd80a11822d9249a"
+        static let RedirectURI = "https://google.com"
+        static let GrantType = "authorization_code"
     }
     
     //MARK: JSON Response Keys

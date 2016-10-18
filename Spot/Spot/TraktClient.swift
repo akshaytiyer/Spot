@@ -10,14 +10,12 @@ import Foundation
 
 class TraktClient: NSObject {
     
-    var discoverMovieMethodType: [String: String]! =    ["Trending Movies": "/trending",
-                                                         "Most Played Movies": "/played/weekly",
-                                                         "Most Watched Movies": "/watched/monthly",
-                                                         "Most Collected Movies": "/collected/weekly",
-                                                         "Anticipated Movies": "/anticipated",
-                                                         "Box Office Movies": "/boxoffice"]
-                                                //"/updates/2015-09-22"]
-    
+    var discoverMovieMethodType: [String: String]! =    ["Trending Movies": "/movies/trending",
+                                                         "Most Played Movies": "/movies/played/weekly",
+                                                         "Most Watched Movies": "/movies/watched/monthly",
+                                                         "Most Collected Movies": "/movies/collected/weekly",
+                                                         "Anticipated Movies": "/movies/anticipated",
+                                                         "Box Office Movies": "/movies/boxoffice"]
     
     //MARK: Initializers
     override init() {
@@ -25,8 +23,8 @@ class TraktClient: NSObject {
     }
     
     //MARK: GET
-    @discardableResult func taskForGETMethod(_ method: String!, methodParameters: [String: String]!, completionHandlerForGET: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
-        let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters as [String : AnyObject], withPathExtension: method))
+    @discardableResult func taskForGETMethod(_ method: String!, methodParameters: [String : AnyObject]!, completionHandlerForGET: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
+        let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
         request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
         request.addValue(TraktClient.Constants.TraktAPIVersion, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIVersion)
         request.addValue(TraktClient.Constants.TraktAPIKey, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIKey)
@@ -57,7 +55,46 @@ class TraktClient: NSObject {
         }) 
         task.resume()
         return task
-        
+    }
+    
+    @discardableResult func taskForPOSTMethod(_ method: String!, methodParameters: [String: AnyObject]!,_ jsonBody: String,_ completionHandlerForPOST: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
+        print(method)
+        let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
+        print(request)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonBody.data(using: String.Encoding.utf8)
+        print(jsonBody)
+        let task = AppDelegate.sharedInstance().session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+            let stringData = String(data: data!, encoding: String.Encoding.utf8)
+            print(stringData)
+            //MARK: Error Handling
+            func sendError(_ error: String) {
+                completionHandlerForPOST(nil, error)
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                sendError(error!.localizedDescription)
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode , statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                print("No data was returned by the request!")
+                return
+            }
+            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForPOST)
+        })
+        task.resume()
+        return task
     }
     
     //MARK: Helper Methods
@@ -75,16 +112,19 @@ class TraktClient: NSObject {
     }
     
     //Create a URL from Parameters
-    func parseURLFromParameters(_ parameters: [String: AnyObject], withPathExtension: String? = nil) -> URL {
+    func parseURLFromParameters(_ parameters: [String: AnyObject]?, PathExtension: String? = nil) -> URL {
      var components = URLComponents()
         components.scheme = TraktClient.Constants.ApiScheme
         components.host = TraktClient.Constants.ApiHost
-        components.path = TraktClient.Constants.ApiPath + (withPathExtension ?? "")
+        components.path = (PathExtension ?? "")
+        if parameters != nil {
         components.queryItems = [URLQueryItem]()
-        for (key, value) in parameters {
+        for (key, value) in parameters! {
             let queryItem = URLQueryItem(name: key, value: "\(value)")
             components.queryItems?.append(queryItem)
+            }
         }
+        print(components.url!)
         return components.url!
     }
     
