@@ -11,6 +11,8 @@ import Foundation
 class TraktSharedInstance: NSObject
 {
     var traktData: [[TraktData]] = [[TraktData]]()
+    var traktSearchData: [[TraktSearchData]] = [[TraktSearchData]]()
+    
     var traktKey: [String] = [String]()
     
     // MARK: Shared Instance

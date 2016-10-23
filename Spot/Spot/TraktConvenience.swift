@@ -56,7 +56,7 @@ extension TraktClient {
         let methodParameters: [String: String] = [
             TraktClient.ParameterKeys.Extended: TraktClient.ParameterObjects.All
         ]
-        var i=0 
+        var i=0
         for (key, value) in discoverMovieMethodType {
         taskForGETMethod(value, methodParameters: methodParameters as [String : AnyObject]!) { (result, error) in
             if let error = error {
@@ -82,7 +82,7 @@ extension TraktClient {
     
     func getTokenData(_ code: String!, completionHandlerForTokenData: @escaping (_ result: Bool,_ accessToken: TraktAccessToken?, _ error: String?)->Void) {
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
-        let method = "/oauth/token"
+        let method = TraktClient.PathExtension.OauthToken
         let jsonBody = "{\n  \"\(TraktClient.JSONBodyKeys.Code)\": \"\(code!)\",\n  \"\(TraktClient.JSONBodyKeys.ClientID)\": \"\(TraktClient.JSONBodyValues.ClientID)\",\n  \"\(TraktClient.JSONBodyKeys.ClientSecret)\": \"\(TraktClient.JSONBodyValues.ClientSecret)\",\n  \"\(TraktClient.JSONBodyKeys.RedirectURI)\": \"\(TraktClient.JSONBodyValues.RedirectURI)\",\n  \"\(TraktClient.JSONBodyKeys.GrantType)\": \"\(TraktClient.JSONBodyValues.GrantType)\"\n}"
         taskForPOSTMethod(method, methodParameters: nil, jsonBody) { (result, error) in
             if let error = error {
@@ -123,4 +123,28 @@ extension TraktClient {
         return NSKeyedUnarchiver.unarchiveObject(withFile: TraktAccessToken.ArchiveURL.path) as? TraktAccessToken
     }
     
-}
+    func getMoviesForSearchString(searchString: String, completionHandlerForMovies: @escaping (_ result: [TraktSearchData]?, _ error: String?) -> Void) -> URLSessionDataTask? {
+        
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        let parameters = [TraktClient.ParameterKeys.Query: searchString]
+        let method = TraktClient.PathExtension.SearchMovies
+        /* 2. Make the request */
+        let task = taskForGETMethod(method, methodParameters: parameters as [String : AnyObject]!) { (results, error) in
+            /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                completionHandlerForMovies(nil, error)
+            } else {
+                guard let jsonData = results as? [[String: AnyObject]] else {
+                    print("Unable to Parse JSON Data")
+                    return
+                }
+                //print(jsonData)
+                let traktSearchData = TraktSearchData.traktSearchDataFromResults(jsonData)
+                completionHandlerForMovies(traktSearchData, nil)
+                
+                }
+            }
+            return task
+        }
+    }
+

@@ -83,15 +83,67 @@
                     <view key="view" contentMode="scaleToFill" id="tT8-n6-GRf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Fzk-hw-SId">
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M67-gm-YEk">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TraktMovieSearchCell" textLabel="W1b-vv-aIl" style="IBUITableViewCellStyleDefault" id="XKf-ky-uu5">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XKf-ky-uu5" id="9jq-ZF-hEk">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W1b-vv-aIl">
+                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fzk-hw-SId" firstAttribute="top" secondItem="tT8-n6-GRf" secondAttribute="top" constant="20" id="8QQ-ce-weM"/>
+                            <constraint firstAttribute="trailing" secondItem="Fzk-hw-SId" secondAttribute="trailing" id="9MO-Zi-Og7"/>
+                            <constraint firstItem="M67-gm-YEk" firstAttribute="leading" secondItem="Fzk-hw-SId" secondAttribute="leading" id="dwC-rX-B8L"/>
+                            <constraint firstItem="Fzk-hw-SId" firstAttribute="leading" secondItem="tT8-n6-GRf" secondAttribute="leading" id="fOj-a3-dzE"/>
+                            <constraint firstItem="Fzk-hw-SId" firstAttribute="bottom" secondItem="M67-gm-YEk" secondAttribute="bottom" constant="-554" id="ias-xg-Tun"/>
+                            <constraint firstItem="M67-gm-YEk" firstAttribute="top" secondItem="Fzk-hw-SId" secondAttribute="bottom" id="wJC-cB-J9z"/>
+                            <constraint firstItem="M67-gm-YEk" firstAttribute="trailing" secondItem="Fzk-hw-SId" secondAttribute="trailing" id="ww3-Lk-5jb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="jtA-Te-VrK">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="2" maxY="0.0"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Fzk-hw-SId" id="hy2-l0-NQa"/>
+                        <outlet property="searchDisplayController" destination="Ni6-6w-2b4" id="Qqc-5S-6cV"/>
+                        <outlet property="tableView" destination="M67-gm-YEk" id="PTn-ta-Pc9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbg-yL-HQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Ni6-6w-2b4">
+                    <connections>
+                        <outlet property="delegate" destination="tuy-OF-VWA" id="XMg-a2-oxk"/>
+                        <outlet property="searchContentsController" destination="tuy-OF-VWA" id="FIM-2g-ahE"/>
+                        <outlet property="searchResultsDataSource" destination="tuy-OF-VWA" id="eYf-aU-WjD"/>
+                        <outlet property="searchResultsDelegate" destination="tuy-OF-VWA" id="wsL-W5-roK"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-679" y="442"/>
+            <point key="canvasLocation" x="-679.20000000000005" y="441.22938530734638"/>
         </scene>
         <!--SpotLoginViewController-->
         <scene sceneID="Lkp-ST-FPL">
@@ -165,7 +217,6 @@
         <!--Discover Navigation Bar-->
         <scene sceneID="q93-KC-yL3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wBv-VK-vZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Discover Navigation Bar" id="yC9-pQ-NM4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" image="Discover Icon" selectedImage="Discover Icon" id="ypc-mV-Q6b"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -188,6 +239,7 @@
                         <segue destination="fil-mJ-esT" kind="relationship" relationship="rootViewController" id="gQq-VC-Sry"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wBv-VK-vZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="178" y="-849"/>
         </scene>

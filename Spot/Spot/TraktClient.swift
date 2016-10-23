@@ -23,7 +23,7 @@ class TraktClient: NSObject {
     }
     
     //MARK: GET
-    @discardableResult func taskForGETMethod(_ method: String!, methodParameters: [String : AnyObject]!, completionHandlerForGET: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
+    @discardableResult func taskForGETMethod(_ method: String!, methodParameters: [String : AnyObject]!, completionHandlerForGET: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionDataTask {
         let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
         request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
         request.addValue(TraktClient.Constants.TraktAPIVersion, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIVersion)
@@ -58,17 +58,13 @@ class TraktClient: NSObject {
     }
     
     @discardableResult func taskForPOSTMethod(_ method: String!, methodParameters: [String: AnyObject]!,_ jsonBody: String,_ completionHandlerForPOST: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
-        print(method)
         let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
-        print(request)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonBody.data(using: String.Encoding.utf8)
-        print(jsonBody)
         let task = AppDelegate.sharedInstance().session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
             let stringData = String(data: data!, encoding: String.Encoding.utf8)
-            print(stringData)
             //MARK: Error Handling
             func sendError(_ error: String) {
                 completionHandlerForPOST(nil, error)

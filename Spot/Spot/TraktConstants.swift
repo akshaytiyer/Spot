@@ -13,7 +13,7 @@ extension TraktClient {
     //MARK: Important Constants
     struct Constants {
         //MARK: APIKey
-        static let TraktAPIKey = "de74b222f292d9dbd52b540ed41c5a4490ac571731b058b9b13f3400c99ba2f2"
+        static let TraktAPIKey = "908a52fa653e47e98503c7c2887923fbec904970959d01cca9455326b886d701"
         static let TraktAPIVersion = "2"
         static let ContentType = "application/json"
         
@@ -32,6 +32,12 @@ extension TraktClient {
     //MARK: JSON Parameter Keys
     struct ParameterKeys {
         static let Extended = "extended"
+        static let Query = "query"
+    }
+    
+    struct PathExtension {
+        static let OauthToken = "/oauth/token"
+        static let SearchMovies = "/search/movie"
     }
     
     //MARK: JSON Parameter Objects
