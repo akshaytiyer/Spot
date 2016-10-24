@@ -126,7 +126,10 @@ extension TraktClient {
     func getMoviesForSearchString(searchString: String, completionHandlerForMovies: @escaping (_ result: [TraktSearchData]?, _ error: String?) -> Void) -> URLSessionDataTask? {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
-        let parameters = [TraktClient.ParameterKeys.Query: searchString]
+        let parameters = [TraktClient.ParameterKeys.Query: searchString,
+                          TraktClient.ParameterKeys.Extended: TraktClient.ParameterObjects.All,
+                          TraktClient.ParameterKeys.Fields: TraktClient.ParameterObjects.Title
+        ]
         let method = TraktClient.PathExtension.SearchMovies
         /* 2. Make the request */
         let task = taskForGETMethod(method, methodParameters: parameters as [String : AnyObject]!) { (results, error) in
@@ -138,7 +141,7 @@ extension TraktClient {
                     print("Unable to Parse JSON Data")
                     return
                 }
-                //print(jsonData)
+                print(jsonData)
                 let traktSearchData = TraktSearchData.traktSearchDataFromResults(jsonData)
                 completionHandlerForMovies(traktSearchData, nil)
                 

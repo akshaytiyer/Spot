@@ -33,6 +33,7 @@ extension TraktClient {
     struct ParameterKeys {
         static let Extended = "extended"
         static let Query = "query"
+        static let Fields = "fields"
     }
     
     struct PathExtension {
@@ -45,6 +46,7 @@ extension TraktClient {
         static let Images = "images"
         static let Full = "full"
         static let All = "full,images"
+        static let Title = "title"
     }
     
     //MARK: JSON Body Keys

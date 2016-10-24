@@ -120,4 +120,11 @@ extension SpotDiscoverViewController: UICollectionViewDelegate, UICollectionView
             collectionViewCell.addCircleView(data.rating)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = traktData[collectionView.tag][(indexPath as NSIndexPath).row]
+        let controller = storyboard!.instantiateViewController(withIdentifier: "SpotDetailViewController") as! SpotDetailViewController
+        controller.traktData = data
+        navigationController!.pushViewController(controller, animated: true)
+    }
 }
