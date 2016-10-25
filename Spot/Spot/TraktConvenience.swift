@@ -121,6 +121,8 @@ extension TraktClient {
     func toggleWatchlist(_ movie: TraktData!,_ isWatchlistItem: Bool, completionHandlerForWatchlistData: @escaping (_ result: Bool,_ error: String?)->Void) {
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         var method: String!
+        
+        //Toggle between add and remove
         if isWatchlistItem {
             method = TraktClient.PathExtension.WatchlistAdd
         } else {

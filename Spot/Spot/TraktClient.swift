@@ -60,11 +60,15 @@ class TraktClient: NSObject {
     }
     
      @discardableResult func taskForPOSTMethod(_ method: String!, methodParameters: [String: AnyObject]!,_ jsonBody: String,_ completionHandlerForPOST: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
+        //Will be nil for first attempt
         let tokenData = TraktClient.sharedInstance().loadTokenData()
+        
         let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
         request.httpMethod = "POST"
+        //Will not work for Authentication at first
         if tokenData != nil {
-            request.addValue("Bearer \((tokenData?.access_token)!)", forHTTPHeaderField: TraktClient.HTTPHeaderFields.Authorization) }
+            request.addValue("Bearer \((tokenData?.access_token)!)", forHTTPHeaderField: TraktClient.HTTPHeaderFields.Authorization)
+        }
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(TraktClient.Constants.TraktAPIVersion, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIVersion)
         request.addValue(TraktClient.Constants.TraktAPIKey, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIKey)
