@@ -42,7 +42,7 @@
         <scene sceneID="OK7-kX-j0H">
             <objects>
                 <collectionViewController id="mEI-4w-fll" customClass="SpotWatchlistViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Nwz-Fa-ehi">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Nwz-Fa-ehi">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -566,9 +566,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnC-Ot-PqZ">
-                                <frame key="frameInset" minX="131" minY="467" width="113" height="30"/>
+                                <frame key="frameInset" minX="14" minY="462" width="346" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add to Watchlist"/>
+                                <connections>
+                                    <action selector="watchlistAction:" destination="hS2-Kw-5Y9" eventType="touchUpInside" id="bFC-GD-9it"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -580,11 +583,12 @@
                         <outlet property="titleDescription" destination="peB-KC-suD" id="H69-wV-JHm"/>
                         <outlet property="titleLabel" destination="krU-9l-vjN" id="mwb-kj-0w7"/>
                         <outlet property="votesLabel" destination="8Es-4W-igx" id="hyd-Gp-09E"/>
+                        <outlet property="watchlistState" destination="lnC-Ot-PqZ" id="9br-CQ-HUY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHm-nB-WqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1386" y="1412"/>
+            <point key="canvasLocation" x="-1386.4000000000001" y="1411.8440779610196"/>
         </scene>
         <!--SpotTabBarController-->
         <scene sceneID="sb4-hl-ETF">

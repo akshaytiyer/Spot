@@ -10,10 +10,15 @@ import UIKit
 
 struct TraktData {
     //MARK: Properties
-    let traktId: Int!
+    
     let title: String!
-    let tmdbId: Int!
+    let year: Int!
+    
+    let traktId: Int!
     let slug: String!
+    let imdbId: String!
+    let tmdbId: Int!
+    
     let rating: Double!
     let votes: Int!
     let runtime: Int!
@@ -24,11 +29,15 @@ struct TraktData {
     //MARK: Initializers
     
     //Construct a data from a dictionary
-    init(traktId: Int!, title: String!, tmdbId: Int!, slug: String!, rating: Double!, votes: Int!, runtime: Int!, titleDescription:String!, backgroundImagePath: String!, backgroundImage: UIImage!) {
-        self.traktId = traktId
+    init(traktId: Int!, title: String!, year: Int!, tmdbId: Int!, imdbId: String!, slug: String!, rating: Double!, votes: Int!, runtime: Int!, titleDescription:String!, backgroundImagePath: String!, backgroundImage: UIImage!) {
         self.title = title
-        self.tmdbId = tmdbId
+        self.year =  year
+        //ID's
+        self.traktId = traktId
         self.slug = slug
+        self.imdbId = imdbId
+        self.tmdbId = tmdbId
+        //Data
         self.rating = rating
         self.votes = votes
         self.runtime = runtime
@@ -63,7 +72,7 @@ struct TraktData {
             else {
                 image = UIImage(named: "The Dark Knight")
             }
-            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes: movieData["votes"] as? Int, runtime: movieData["runtime"] as? Int, titleDescription: movieData["overview"] as? String, backgroundImagePath: poster["thumb"] as? String, backgroundImage: image))
+            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, year: movieData["year"] as? Int, tmdbId: idData["tmdb"] as? Int, imdbId: idData["imdb"] as? String, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes:  movieData["votes"] as? Int, runtime:  movieData["runtime"] as? Int, titleDescription: movieData["overview"] as? String, backgroundImagePath: poster["thumb"] as? String, backgroundImage: image))
         }
         return trakt
     }
@@ -79,7 +88,7 @@ struct TraktData {
                 let idData = movieData["ids"] as? [String: AnyObject] else {
                     return trakt
             }
-            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes: movieData["votes"] as? Int, runtime: movieData["runtime"] as? Int, titleDescription: movieData["overview"] as? String, backgroundImagePath: poster["thumb"] as? String, backgroundImage: nil))
+            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, year: movieData["year"] as? Int, tmdbId: idData["tmdb"] as? Int, imdbId: idData["imdb"] as? String, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes:  movieData["votes"] as? Int, runtime:  movieData["runtime"] as? Int, titleDescription: movieData["overview"] as? String, backgroundImagePath: poster["thumb"] as? String, backgroundImage: nil))
         }
         return trakt
     }

@@ -117,6 +117,27 @@ extension TraktClient {
         }
     }
     
+    
+    func toggleWatchlist(_ movie: TraktData!,_ isWatchlistItem: Bool, completionHandlerForWatchlistData: @escaping (_ result: Bool,_ error: String?)->Void) {
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        var method: String!
+        if isWatchlistItem {
+            method = TraktClient.PathExtension.WatchlistAdd
+        } else {
+            method = TraktClient.PathExtension.WatchlistRemove
+        }
+        let jsonBody = "{\n  \"movies\": [\n    {\n      \"title\": \"\(movie.title!)\",\n      \"year\": \(movie.year!),\n      \"ids\": {\n        \"trakt\": \(movie.traktId!),\n        \"slug\": \"\(movie.slug!)\",\n        \"imdb\": \"\(movie.imdbId!)\",\n        \"tmdb\": \(movie.tmdbId!)\n      }\n }\n ]\n}"
+
+        taskForPOSTMethod(method, methodParameters: nil, jsonBody) { (result, error) in
+            if let error = error {
+                completionHandlerForWatchlistData(false,error)
+            } else {
+                completionHandlerForWatchlistData(true, nil)
+            }
+        }
+    }
+    
+    
     func saveTokenData(newAccessToken: TraktAccessToken, completionHandlerForTokenData: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         let tokenData = NSKeyedArchiver.archiveRootObject(newAccessToken, toFile: TraktAccessToken.ArchiveURL.path)
         if !tokenData {

@@ -60,13 +60,20 @@ class TraktClient: NSObject {
     }
     
      @discardableResult func taskForPOSTMethod(_ method: String!, methodParameters: [String: AnyObject]!,_ jsonBody: String,_ completionHandlerForPOST: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
+        let tokenData = TraktClient.sharedInstance().loadTokenData()
         let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
         request.httpMethod = "POST"
+        if tokenData != nil {
+            request.addValue("Bearer \((tokenData?.access_token)!)", forHTTPHeaderField: TraktClient.HTTPHeaderFields.Authorization) }
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(TraktClient.Constants.TraktAPIVersion, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIVersion)
+        request.addValue(TraktClient.Constants.TraktAPIKey, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIKey)
+        request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
         request.httpBody = jsonBody.data(using: String.Encoding.utf8)
         let task = AppDelegate.sharedInstance().session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+            print(data)
             let stringData = String(data: data!, encoding: String.Encoding.utf8)
+            print(stringData)
             //MARK: Error Handling
             func sendError(_ error: String) {
                 completionHandlerForPOST(nil, error)

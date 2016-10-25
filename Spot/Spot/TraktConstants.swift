@@ -42,6 +42,8 @@ extension TraktClient {
         static let OauthToken = "/oauth/token"
         static let SearchMovies = "/search/movie"
         static let Watchlist = "/sync/watchlist/movies"
+        static let WatchlistAdd = "/sync/watchlist"
+        static let WatchlistRemove = "/sync/watchlist/remove"
     }
     
     //MARK: JSON Parameter Objects
