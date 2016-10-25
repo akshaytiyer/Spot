@@ -15,11 +15,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Item-->
+        <!--Watchlist-->
         <scene sceneID="4qf-TZ-69j">
             <objects>
                 <navigationController id="iyL-jb-gih" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="Watchlist Icon" selectedImage="Watchlist Icon" id="7IF-Pp-a67"/>
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="Watchlist Icon" selectedImage="Watchlist Icon" id="7IF-Pp-a67"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="uOl-8B-5oV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -194,7 +194,7 @@
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wNw-0z-sjB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wNw-0z-sjB">
                                 <frame key="frameInset" minY="64" width="384" height="534"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

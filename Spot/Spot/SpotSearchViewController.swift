@@ -17,11 +17,16 @@ class SpotSearchViewController: UIViewController
     
     override func viewDidLoad() {
        super.viewDidLoad()
-        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        //view.addGestureRecognizer(tap)
+        /*let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SpotSearchViewController.hideKeyboard))
+        tapGesture.cancelsTouchesInView = true
+        tableView.addGestureRecognizer(tapGesture)*/
         setTableViewDelegateProperties()
         setSearchBarDelegateProperties()
     }
+    
+    /* func hideKeyboard() {
+        tableView.endEditing(true)
+    } */
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -42,7 +47,7 @@ class SpotSearchViewController: UIViewController
     fileprivate func setSearchBarDelegateProperties()
     {
         self.searchBar.delegate = self
-        self.searchBar.showsCancelButton = true
+        //self.searchBar.showsCancelButton = true
     }
     
     
