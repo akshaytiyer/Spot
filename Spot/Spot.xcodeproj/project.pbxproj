@@ -32,7 +32,6 @@
 		5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */; };
 		5EFF6B831D3DC7A400F7BC0E /* SpotSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */; };
 		5EFF6B851D3DC7C500F7BC0E /* SpotWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */; };
-		5EFF6B871D3DC7D600F7BC0E /* SpotLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF6B861D3DC7D600F7BC0E /* SpotLibraryViewController.swift */; };
 		5EFF6B8E1D3DD21600F7BC0E /* GothamThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF6B8B1D3DD21600F7BC0E /* GothamThin.otf */; };
 		5EFF6B8F1D3DD21600F7BC0E /* GothamThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF6B8B1D3DD21600F7BC0E /* GothamThin.otf */; };
 		5EFF6B901D3DD21600F7BC0E /* GothamThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFF6B8B1D3DD21600F7BC0E /* GothamThin.otf */; };
@@ -93,7 +92,6 @@
 		5EFF6B7D1D3DB45C00F7BC0E /* SpotTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTabBarController.swift; sourceTree = "<group>"; };
 		5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotSearchViewController.swift; sourceTree = "<group>"; };
 		5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotWatchlistViewController.swift; sourceTree = "<group>"; };
-		5EFF6B861D3DC7D600F7BC0E /* SpotLibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotLibraryViewController.swift; sourceTree = "<group>"; };
 		5EFF6B8B1D3DD21600F7BC0E /* GothamThin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamThin.otf; sourceTree = "<group>"; };
 		5EFF6B8C1D3DD21600F7BC0E /* GothamBook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.ttf; sourceTree = "<group>"; };
 		5EFF6B8D1D3DD21600F7BC0E /* GothamMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium.otf; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 			children = (
 				5EFF6B821D3DC7A400F7BC0E /* SpotSearchViewController.swift */,
 				5EFF6B841D3DC7C500F7BC0E /* SpotWatchlistViewController.swift */,
-				5EFF6B861D3DC7D600F7BC0E /* SpotLibraryViewController.swift */,
 				5EA70F861D404E6C00223BFF /* SpotDiscoverViewController.swift */,
 				5EAA99F61D76232400AFCC45 /* SpotLoginViewController.swift */,
 				5E9F2B391DBD6D28001589D4 /* SpotDetailViewController.swift */,
@@ -391,7 +388,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFF6B871D3DC7D600F7BC0E /* SpotLibraryViewController.swift in Sources */,
 				5EAA99F71D76232400AFCC45 /* SpotLoginViewController.swift in Sources */,
 				5E9F2B351DBBEDD4001589D4 /* TraktSearchData.swift in Sources */,
 				5E9F2B3A1DBD6D28001589D4 /* SpotDetailViewController.swift in Sources */,

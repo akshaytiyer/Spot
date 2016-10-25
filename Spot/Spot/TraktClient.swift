@@ -24,8 +24,10 @@ class TraktClient: NSObject {
     
     //MARK: GET
     @discardableResult func taskForGETMethod(_ method: String!, methodParameters: [String : AnyObject]!, completionHandlerForGET: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionDataTask {
+        let tokenData = TraktClient.sharedInstance().loadTokenData()
         let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
         request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
+        request.addValue("Bearer \((tokenData?.access_token)!)", forHTTPHeaderField: TraktClient.HTTPHeaderFields.Authorization)
         request.addValue(TraktClient.Constants.TraktAPIVersion, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIVersion)
         request.addValue(TraktClient.Constants.TraktAPIKey, forHTTPHeaderField: TraktClient.HTTPHeaderFields.TraktAPIKey)
         let task = AppDelegate.sharedInstance().session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
@@ -57,7 +59,7 @@ class TraktClient: NSObject {
         return task
     }
     
-    @discardableResult func taskForPOSTMethod(_ method: String!, methodParameters: [String: AnyObject]!,_ jsonBody: String,_ completionHandlerForPOST: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
+     @discardableResult func taskForPOSTMethod(_ method: String!, methodParameters: [String: AnyObject]!,_ jsonBody: String,_ completionHandlerForPOST: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
         let request = NSMutableURLRequest(url: parseURLFromParameters(methodParameters, PathExtension: method))
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")

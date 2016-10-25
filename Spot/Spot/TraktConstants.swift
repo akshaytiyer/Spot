@@ -20,6 +20,7 @@ extension TraktClient {
         //MARK: URL
         static let ApiScheme = "https"
         static let ApiHost = "api.trakt.tv"
+        
     }
     
     //MARK: HTTP Header Fields
@@ -27,6 +28,7 @@ extension TraktClient {
         static let TraktAPIKey = "trakt-api-key"
         static let TraktAPIVersion = "trakt-api-version"
         static let ContentType = "Content-Type"
+        static let Authorization = "Authorization"
     }
     
     //MARK: JSON Parameter Keys
@@ -39,6 +41,7 @@ extension TraktClient {
     struct PathExtension {
         static let OauthToken = "/oauth/token"
         static let SearchMovies = "/search/movie"
+        static let Watchlist = "/sync/watchlist/movies"
     }
     
     //MARK: JSON Parameter Objects

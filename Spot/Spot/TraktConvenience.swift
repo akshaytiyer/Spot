@@ -80,6 +80,25 @@ extension TraktClient {
         }
     }
     
+    func getDiscoverWatchlistData(method: String!, completionHandlerForTraktData: @escaping (_ result: [TraktData]?, _ error: String?)->Void) -> URLSessionDataTask {
+        let methodParameters: [String: String] = [
+            TraktClient.ParameterKeys.Extended: TraktClient.ParameterObjects.All
+        ]
+        let task = taskForGETMethod(method, methodParameters: methodParameters as [String : AnyObject]!) { (result, error) in
+                if let error = error {
+                    completionHandlerForTraktData(nil, error)
+                } else {
+                    guard let jsonData = result as? [[String:AnyObject]] else {
+                        print("Unable to Parse JSON Data")
+                        return
+                    }
+                    let traktData = TraktData.traktDataFromResults(jsonData)
+                    completionHandlerForTraktData(traktData, nil)
+                }
+            }
+    return task
+    }
+    
     func getTokenData(_ code: String!, completionHandlerForTokenData: @escaping (_ result: Bool,_ accessToken: TraktAccessToken?, _ error: String?)->Void) {
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let method = TraktClient.PathExtension.OauthToken
