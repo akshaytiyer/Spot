@@ -17,22 +17,32 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     var storedOffsets = [Int: CGFloat]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setTableViewDelegateProperties()
         setNavigationBarTextProperties()
         activityViewController.hidesWhenStopped = true
         activityViewController.startAnimating()
-        TraktClient.sharedInstance().getDiscoverTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
-            if result == true {
-                self.traktData = TraktSharedInstance.sharedInstance().traktData
-                self.traktKey = TraktSharedInstance.sharedInstance().traktKey
-                performUIUpdatesOnMain({
-                    self.activityViewController.stopAnimating()
-                    self.tableView.reloadData()
-                })
+        if Reachability.isConnectedToNetwork() == true {
+            TraktClient.sharedInstance().getDiscoverTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
+                if result == true {
+                    self.traktData = TraktSharedInstance.sharedInstance().traktData
+                    self.traktKey = TraktSharedInstance.sharedInstance().traktKey
+                    performUIUpdatesOnMain({
+                        self.activityViewController.stopAnimating()
+                        self.tableView.reloadData()
+                    })
+                }
+                else {
+                    self.dismissApp()
+                }
             }
-            else {
-                self.dismissApp()
+        } else {
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.activityViewController.stopAnimating()
             }
+            alert.addAction(OKAction)
+            self.present(alert, animated: true)
         }
     }
 

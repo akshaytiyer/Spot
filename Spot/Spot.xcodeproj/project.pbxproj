@@ -17,6 +17,7 @@
 		5E84E1A21DB401D500A19006 /* TraktAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E84E1A11DB401D500A19006 /* TraktAccessToken.swift */; };
 		5E9F2B351DBBEDD4001589D4 /* TraktSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2B341DBBEDD4001589D4 /* TraktSearchData.swift */; };
 		5E9F2B3A1DBD6D28001589D4 /* SpotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F2B391DBD6D28001589D4 /* SpotDetailViewController.swift */; };
+		5EA5B9691DBFFA6F0044503E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA5B9681DBFFA6F0044503E /* Reachability.swift */; };
 		5EA70F721D3EDB8300223BFF /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F711D3EDB8300223BFF /* CircularView.swift */; };
 		5EA70F761D3F0A6F00223BFF /* TraktConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */; };
 		5EA70F791D3F0A8100223BFF /* TraktClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA70F781D3F0A8100223BFF /* TraktClient.swift */; };
@@ -77,6 +78,7 @@
 		5E84E1A11DB401D500A19006 /* TraktAccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktAccessToken.swift; sourceTree = "<group>"; };
 		5E9F2B341DBBEDD4001589D4 /* TraktSearchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktSearchData.swift; sourceTree = "<group>"; };
 		5E9F2B391DBD6D28001589D4 /* SpotDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotDetailViewController.swift; sourceTree = "<group>"; };
+		5EA5B9681DBFFA6F0044503E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5EA70F711D3EDB8300223BFF /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktConstants.swift; sourceTree = "<group>"; };
 		5EA70F781D3F0A8100223BFF /* TraktClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktClient.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				5EA70F711D3EDB8300223BFF /* CircularView.swift */,
 				5EA70F8C1D406C3C00223BFF /* SpotDiscoverTableViewCell.swift */,
 				5EA70F8E1D406F3300223BFF /* SpotDiscoverCollectionViewCell.swift */,
+				5EA5B9681DBFFA6F0044503E /* Reachability.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				5EAA99F91D762C9C00AFCC45 /* TraktAuthenticationViewController.swift in Sources */,
 				5EA70F8D1D406C3C00223BFF /* SpotDiscoverTableViewCell.swift in Sources */,
 				5EA70F7D1D3F0AE100223BFF /* TraktData.swift in Sources */,
+				5EA5B9691DBFFA6F0044503E /* Reachability.swift in Sources */,
 				5EA70F761D3F0A6F00223BFF /* TraktConstants.swift in Sources */,
 				5EA70F8F1D406F3300223BFF /* SpotDiscoverCollectionViewCell.swift in Sources */,
 				5EFF6B7E1D3DB45C00F7BC0E /* SpotTabBarController.swift in Sources */,

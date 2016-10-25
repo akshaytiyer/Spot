@@ -38,7 +38,7 @@ class TraktClient: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError(error!.localizedDescription)
+                sendError("Check Your Internet Connection")
                 return
             }
             
@@ -75,9 +75,7 @@ class TraktClient: NSObject {
         request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
         request.httpBody = jsonBody.data(using: String.Encoding.utf8)
         let task = AppDelegate.sharedInstance().session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
-            print(data)
-            let stringData = String(data: data!, encoding: String.Encoding.utf8)
-            print(stringData)
+
             //MARK: Error Handling
             func sendError(_ error: String) {
                 completionHandlerForPOST(nil, error)
@@ -91,7 +89,7 @@ class TraktClient: NSObject {
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode , statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
+                sendError("Check Your Internet Connection")
                 return
             }
             

@@ -17,16 +17,9 @@ class SpotSearchViewController: UIViewController
     
     override func viewDidLoad() {
        super.viewDidLoad()
-        /*let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SpotSearchViewController.hideKeyboard))
-        tapGesture.cancelsTouchesInView = true
-        tableView.addGestureRecognizer(tapGesture)*/
         setTableViewDelegateProperties()
         setSearchBarDelegateProperties()
     }
-    
-    /* func hideKeyboard() {
-        tableView.endEditing(true)
-    } */
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -76,18 +69,31 @@ extension SpotSearchViewController: UISearchBarDelegate {
             tableView?.reloadData()
             return
         }
-        
+
+    if Reachability.isConnectedToNetwork() == true {
         searchTask = TraktClient.sharedInstance().getMoviesForSearchString(searchString: searchText) { (result, error) in
         self.searchTask = nil
         if let movieSearchData = result {
             self.movieData = movieSearchData
             performUIUpdatesOnMain {
                 self.tableView.reloadData()
+                    }
+                }
             }
-            }
+        } else {
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.searchBar.text = ""
+            self.view.endEditing(true)
+        }
+        alert.addAction(OKAction)
+        
+        self.present(alert, animated: true)
+        
+        
         }
     }
-    
+
     func fetchImage(_ imagePath: String?) -> UIImage! {
         var image: UIImage!
         if imagePath != nil {
