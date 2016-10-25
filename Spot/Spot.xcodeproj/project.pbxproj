@@ -148,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				5E072A4F1D3D6CBF002F0BE2 /* AppDelegate.swift */,
+				5EFF6B881D3DC84300F7BC0E /* View */,
 				5EFF6B8A1D3DC89D00F7BC0E /* Model */,
 				5EFF6B7F1D3DC76100F7BC0E /* Controller */,
 				5EFF6B891D3DC87A00F7BC0E /* Resources */,
@@ -179,7 +180,6 @@
 		5EA70F731D3F0A3400223BFF /* Trakt.TV */ = {
 			isa = PBXGroup;
 			children = (
-				5EFF6B881D3DC84300F7BC0E /* View */,
 				5EA70F751D3F0A6F00223BFF /* TraktConstants.swift */,
 				5EA70F781D3F0A8100223BFF /* TraktClient.swift */,
 				5EA70F7A1D3F0A9700223BFF /* TraktConvenience.swift */,

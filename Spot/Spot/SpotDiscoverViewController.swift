@@ -26,8 +26,8 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
                 self.traktData = TraktSharedInstance.sharedInstance().traktData
                 self.traktKey = TraktSharedInstance.sharedInstance().traktKey
                 performUIUpdatesOnMain({
-                    self.tableView.reloadData()
                     self.activityViewController.stopAnimating()
+                    self.tableView.reloadData()
                 })
             }
             else {

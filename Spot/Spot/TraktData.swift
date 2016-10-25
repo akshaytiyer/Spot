@@ -19,7 +19,7 @@ struct TraktData {
     let runtime: Int!
     let titleDescription: String!
     let backgroundImagePath: String!
-    let backgroundImage: UIImage!
+    var backgroundImage: UIImage!
     
     //MARK: Initializers
     
@@ -50,10 +50,15 @@ struct TraktData {
                   let idData = movieData["ids"] as? [String: AnyObject] else {
                 return trakt
             }
-            let url = URL(string: (poster["thumb"] as? String)!)
+            if (poster["thumb"] as? NSString) != nil {
+            let url = URL(string: (poster["thumb"] as? NSString)! as String)
             let imageFromData = NSData(contentsOf: url!)
             if imageFromData != nil {
                 image = UIImage(data: imageFromData as! Data)
+            }
+            else {
+                image = UIImage(named: "The Dark Knight")
+            }
             }
             else {
                 image = UIImage(named: "The Dark Knight")
@@ -62,5 +67,23 @@ struct TraktData {
         }
         return trakt
     }
+    
+    static func traktSearchDataFromResults(_ results: [[String: AnyObject]]) -> [TraktData] {
+        var trakt = [TraktData]()
+        for result in results {
+            guard let movieData = result["movie"] as? [String: AnyObject],
+                //MARK: Image Data
+                let imageData = movieData["images"] as? [String: AnyObject],
+                let poster = imageData["poster"] as? [String: AnyObject],
+                //MARK: ID data
+                let idData = movieData["ids"] as? [String: AnyObject] else {
+                    return trakt
+            }
+            trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, tmdbId: idData["tmdb"] as? Int, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes: movieData["votes"] as? Int, runtime: movieData["runtime"] as? Int, titleDescription: movieData["overview"] as? String, backgroundImagePath: poster["thumb"] as? String, backgroundImage: nil))
+        }
+        return trakt
+    }
+    
+    
 }
 

@@ -13,14 +13,18 @@ class SpotSearchViewController: UIViewController
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     var searchTask: URLSessionDataTask?
-    var movieData: [TraktSearchData] = []
+    var movieData: [TraktData] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+       super.viewDidLoad()
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        //view.addGestureRecognizer(tap)
         setTableViewDelegateProperties()
         setSearchBarDelegateProperties()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     func dismissKeyboard() {
@@ -54,7 +58,7 @@ extension SpotSearchViewController: UIGestureRecognizerDelegate {
 
 extension SpotSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        movieData = [TraktSearchData]()
+        movieData = [TraktData]()
         
         // cancel the last task
         if let task = searchTask {
@@ -63,7 +67,7 @@ extension SpotSearchViewController: UISearchBarDelegate {
         
         // if the text is empty we are done
         if searchText == "" {
-            movieData = [TraktSearchData]()
+            movieData = [TraktData]()
             tableView?.reloadData()
             return
         }
@@ -78,6 +82,25 @@ extension SpotSearchViewController: UISearchBarDelegate {
             }
         }
     }
+    
+    func fetchImage(_ imagePath: String?) -> UIImage! {
+        var image: UIImage!
+        if imagePath != nil {
+            let url = URL(string: (imagePath)!)
+            let imageFromData = NSData(contentsOf: url!)
+            if imageFromData != nil {
+                image = UIImage(data: imageFromData as! Data)
+            }
+            else {
+                image = UIImage(named: "The Dark Knight")
+            }
+        }
+        else {
+            image = UIImage(named: "The Dark Knight")
+        }
+        return image
+    }
+    
 }
 
 extension SpotSearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -87,16 +110,7 @@ extension SpotSearchViewController: UITableViewDelegate, UITableViewDataSource {
         let CellReuseId = "TraktMovieSearchCell"
         let movie = movieData[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: CellReuseId) as UITableViewCell!
-        /*
-        if let releaseYear = movie.year {
-            cell?.textLabel!.text = "\(movie.title) (\(releaseYear))"
-        } else {
-            cell?.textLabel!.text = "\(movie.title)"
-        } */
         cell?.textLabel?.text = movie.title
-        print(cell?.textLabel?.text)
-        //print(movie.title)
-        //print(movie.year)
         return cell!
     }
     
@@ -105,10 +119,11 @@ extension SpotSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*let movie = movies[indexPath.row]
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("MovieDetailViewController") as! MovieDetailViewController
-        controller.movie = movie
-        navigationController!.pushViewController(controller, animated: true)*/
+        var movies = movieData[indexPath.row]
+        movies.backgroundImage = fetchImage(movies.backgroundImagePath)
+        let controller = storyboard!.instantiateViewController(withIdentifier: "SpotDetailViewController") as! SpotDetailViewController
+        controller.traktData = movies
+        navigationController!.pushViewController(controller, animated: true)
     }
 }
 

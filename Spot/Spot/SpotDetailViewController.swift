@@ -22,6 +22,7 @@ class SpotDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(traktData)
+        self.navigationController?.isNavigationBarHidden = false
         self.imageView.image = traktData.backgroundImage
         self.backgroundImage.image = traktData.backgroundImage
         self.titleLabel.text = traktData.title

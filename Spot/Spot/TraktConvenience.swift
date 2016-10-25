@@ -123,7 +123,7 @@ extension TraktClient {
         return NSKeyedUnarchiver.unarchiveObject(withFile: TraktAccessToken.ArchiveURL.path) as? TraktAccessToken
     }
     
-    func getMoviesForSearchString(searchString: String, completionHandlerForMovies: @escaping (_ result: [TraktSearchData]?, _ error: String?) -> Void) -> URLSessionDataTask? {
+    func getMoviesForSearchString(searchString: String, completionHandlerForMovies: @escaping (_ result: [TraktData]?, _ error: String?) -> Void) -> URLSessionDataTask? {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [TraktClient.ParameterKeys.Query: searchString,
@@ -141,8 +141,7 @@ extension TraktClient {
                     print("Unable to Parse JSON Data")
                     return
                 }
-                print(jsonData)
-                let traktSearchData = TraktSearchData.traktSearchDataFromResults(jsonData)
+                let traktSearchData = TraktData.traktSearchDataFromResults(jsonData)
                 completionHandlerForMovies(traktSearchData, nil)
                 
                 }
