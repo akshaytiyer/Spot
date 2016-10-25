@@ -23,7 +23,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="uOl-8B-5oV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="GothamMedium" family="GothamMedium" pointSize="14"/>
+                            <color key="textColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="mEI-4w-fll" kind="relationship" relationship="rootViewController" id="10v-At-ywf"/>
@@ -33,26 +38,26 @@
             </objects>
             <point key="canvasLocation" x="-474" y="-806"/>
         </scene>
-        <!--Spot Watchlist View Controller-->
+        <!--WATCHLIST-->
         <scene sceneID="OK7-kX-j0H">
             <objects>
                 <collectionViewController id="mEI-4w-fll" customClass="SpotWatchlistViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Nwz-Fa-ehi">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Nwz-Fa-ehi">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VUu-Tm-kp7">
-                            <size key="itemSize" width="128" height="195"/>
+                            <size key="itemSize" width="123" height="195"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WatchlistCollectionViewCell" id="VXz-Hu-cEZ" customClass="SpotDiscoverCollectionViewCell" customModule="Spot" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="195"/>
+                                <rect key="frame" x="0.0" y="0.0" width="123" height="195"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="195"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="123" height="195"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvO-iW-WjK">
@@ -137,7 +142,9 @@
                             <outlet property="delegate" destination="mEI-4w-fll" id="85g-vK-ThH"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="WHK-gY-Fjd"/>
+                    <navigationItem key="navigationItem" title="WATCHLIST" id="WHK-gY-Fjd">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="JzL-hR-Uul"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Nwz-Fa-ehi" id="UQW-MO-C5L"/>
                         <outlet property="watchlistView" destination="Nwz-Fa-ehi" id="Z8j-vt-nAX"/>
@@ -168,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="-1379" y="-64"/>
         </scene>
-        <!--Spot Search View Controller-->
+        <!--SEARCH-->
         <scene sceneID="4f9-P7-oue">
             <objects>
                 <viewController id="mWG-Ua-2yW" customClass="SpotSearchViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
@@ -219,7 +226,9 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HD4-f7-zck"/>
+                    <navigationItem key="navigationItem" title="SEARCH" id="HD4-f7-zck">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="B2m-2k-gBO"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="QX1-wg-UFa" id="Vam-qv-8aQ"/>
                         <outlet property="tableView" destination="wNw-0z-sjB" id="lAb-Oz-AyR"/>
@@ -327,7 +336,7 @@
             </objects>
             <point key="canvasLocation" x="-2371" y="-806"/>
         </scene>
-        <!--Spot Discover View Controller-->
+        <!--DISCOVER-->
         <scene sceneID="1oc-O0-FkU">
             <objects>
                 <viewController id="fil-mJ-esT" customClass="SpotDiscoverViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
@@ -482,7 +491,9 @@
                             <constraint firstAttribute="trailing" secondItem="pge-dH-T7V" secondAttribute="trailing" id="oaG-Y7-ZLT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Jb4-WH-I1G"/>
+                    <navigationItem key="navigationItem" title="DISCOVER" id="Jb4-WH-I1G">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="dMh-6h-sTN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityViewController" destination="TTF-sK-U61" id="BMJ-HR-la3"/>
                         <outlet property="tableView" destination="pge-dH-T7V" id="czE-Xw-Vra"/>
