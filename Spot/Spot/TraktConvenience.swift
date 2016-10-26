@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 extension TraktClient {
     
@@ -92,8 +93,22 @@ extension TraktClient {
                         print("Unable to Parse JSON Data")
                         return
                     }
-                    let traktData = TraktData.traktDataFromResults(jsonData)
-                    completionHandlerForTraktData(traktData, nil)
+                    let watchlistData = TraktData.traktDataFromResults(jsonData)
+                    for individualData in watchlistData {
+                        let data: Dictionary<NSString, NSString> = [
+                            "title": individualData.title as NSString,
+                            "backgroundImagePath": individualData.backgroundImagePath as NSString,
+                            "runtime": String(individualData.runtime) as NSString,
+                            "votes": String(individualData.votes) as NSString,
+                            "rating": String(individualData.rating) as NSString,
+                            "imdbId": individualData.imdbId as NSString,
+                            "traktId": String(individualData.traktId) as NSString
+                        ]
+                    
+                       let watchlistItemRef = self.ref.child("\(individualData.traktId!)")
+                        watchlistItemRef.setValue(data)
+                    }
+                    completionHandlerForTraktData(watchlistData, nil)
                 }
             }
     return task

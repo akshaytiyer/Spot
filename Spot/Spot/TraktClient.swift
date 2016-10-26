@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import Firebase
 
 class TraktClient: NSObject {
+    
+    let ref = FIRDatabase.database().reference(withPath: "spot-watchlist")
     
     var discoverMovieMethodType: [String: String]! =    ["Trending Movies": "/movies/trending",
                                                          "Most Played Movies": "/movies/played/weekly",

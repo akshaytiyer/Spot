@@ -10,8 +10,10 @@ import UIKit
 
 class SpotWatchlistViewController: UICollectionViewController
 {
+    
     @IBOutlet var watchlistView: UICollectionView!
-
+    
+    
     var movieData: [TraktData] = []
     
     override func viewWillAppear(_ animated: Bool) {
