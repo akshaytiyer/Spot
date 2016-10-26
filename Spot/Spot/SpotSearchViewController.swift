@@ -90,7 +90,7 @@ extension SpotSearchViewController: UISearchBarDelegate {
             let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             self.searchBar.text = ""
             self.view.endEditing(true)
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+         
         }
         alert.addAction(OKAction)
         self.present(alert, animated: true)
