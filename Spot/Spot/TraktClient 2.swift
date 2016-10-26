@@ -38,7 +38,7 @@ class TraktClient: NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("Check Your Internet Connection")
+                sendError(error!.localizedDescription)
                 return
             }
             
@@ -60,7 +60,6 @@ class TraktClient: NSObject {
     }
     
      @discardableResult func taskForPOSTMethod(_ method: String!, methodParameters: [String: AnyObject]!,_ jsonBody: String,_ completionHandlerForPOST: @escaping (_ result: Any?, _ error: String?) -> Void) -> URLSessionTask {
-        
         //Will be nil for first attempt
         let tokenData = TraktClient.sharedInstance().loadTokenData()
         
@@ -76,6 +75,9 @@ class TraktClient: NSObject {
         request.addValue(TraktClient.Constants.ContentType, forHTTPHeaderField: TraktClient.HTTPHeaderFields.ContentType)
         request.httpBody = jsonBody.data(using: String.Encoding.utf8)
         let task = AppDelegate.sharedInstance().session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+            print(data)
+            let stringData = String(data: data!, encoding: String.Encoding.utf8)
+            print(stringData)
             //MARK: Error Handling
             func sendError(_ error: String) {
                 completionHandlerForPOST(nil, error)
@@ -89,7 +91,7 @@ class TraktClient: NSObject {
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode , statusCode >= 200 && statusCode <= 299 else {
-                sendError("Check Your Internet Connection")
+                sendError("Your request returned a status code other than 2xx!")
                 return
             }
             

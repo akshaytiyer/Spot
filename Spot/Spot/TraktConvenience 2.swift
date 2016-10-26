@@ -139,46 +139,6 @@ extension TraktClient {
         }
     }
     
-    func revokeTokenData(completionHandlerForRevokeTokenData: @escaping (_ result: Bool,_ error: String?)->Void) {
-        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
-        if let accesstokendata = loadTokenData() {
-        let method = TraktClient.PathExtension.OauthRevoke
-            
-        let jsonBody = "{\n \"token\": \"\(accesstokendata.access_token!)\" \n}"
-        
-        taskForPOSTMethod(method, methodParameters: nil, jsonBody) { (result, error) in
-            if let error = error {
-                completionHandlerForRevokeTokenData(false,error)
-            } else {
-                self.deleteTokenData(completionHandlerForDaleteTokenData: { (result, error) in
-                    if result {
-                        completionHandlerForRevokeTokenData(true, nil)
-                    } else {
-                        completionHandlerForRevokeTokenData(false,error)
-                    }
-                    
-                })
-                
-            }
-        }
-        }
-    }
-    
-    func deleteTokenData(completionHandlerForDaleteTokenData: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
-        let exists = FileManager.default.fileExists(atPath: TraktAccessToken.ArchiveURL.path)
-        if exists {
-            do {
-                try FileManager.default.removeItem(atPath: TraktAccessToken.ArchiveURL.path)
-                completionHandlerForDaleteTokenData(true, nil)
-            } catch let error as NSError {
-                print("error: \(error.localizedDescription)")
-                completionHandlerForDaleteTokenData(false, "Unable to delete the file")
-            }
-        }
-        
-    }
-    
-    
     
     func saveTokenData(newAccessToken: TraktAccessToken, completionHandlerForTokenData: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         let tokenData = NSKeyedArchiver.archiveRootObject(newAccessToken, toFile: TraktAccessToken.ArchiveURL.path)

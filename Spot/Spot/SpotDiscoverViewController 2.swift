@@ -16,35 +16,23 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
     var traktKey: [String] = [String]()
     var storedOffsets = [Int: CGFloat]()
     
-    
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
         setTableViewDelegateProperties()
         setNavigationBarTextProperties()
         activityViewController.hidesWhenStopped = true
         activityViewController.startAnimating()
-        if Reachability.isConnectedToNetwork() == true {
-            TraktClient.sharedInstance().getDiscoverTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
-                if result == true {
-                    self.traktData = TraktSharedInstance.sharedInstance().traktData
-                    self.traktKey = TraktSharedInstance.sharedInstance().traktKey
-                    performUIUpdatesOnMain({
-                        self.activityViewController.stopAnimating()
-                        self.tableView.reloadData()
-                    })
-                }
-                else {
-                    self.dismissApp()
-                }
+        TraktClient.sharedInstance().getDiscoverTraktData(TraktClient.sharedInstance().discoverMovieMethodType) { (result, error) in
+            if result == true {
+                self.traktData = TraktSharedInstance.sharedInstance().traktData
+                self.traktKey = TraktSharedInstance.sharedInstance().traktKey
+                performUIUpdatesOnMain({
+                    self.activityViewController.stopAnimating()
+                    self.tableView.reloadData()
+                })
             }
-        } else {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.activityViewController.stopAnimating()
+            else {
+                self.dismissApp()
             }
-            alert.addAction(OKAction)
-            self.present(alert, animated: true)
         }
     }
 
@@ -101,18 +89,6 @@ class SpotDiscoverViewController: UIViewController, UITableViewDataSource, UITab
                 NSFontAttributeName: font
             ]
             self.navigationController?.navigationBar.titleTextAttributes = navBarAttributesDictionary
-        }
-    }
- 
-    
-    @IBAction func logoutButton(_ sender: AnyObject) {
-        TraktClient.sharedInstance().revokeTokenData { (result, error) in
-            if result {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SpotLoginViewController")
-                self.present(nextViewController, animated: false, completion: nil)
-            }
-            
         }
     }
     

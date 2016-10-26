@@ -17,11 +17,16 @@ class SpotSearchViewController: UIViewController
     
     override func viewDidLoad() {
        super.viewDidLoad()
-        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        //view.addGestureRecognizer(tap)
+        /*let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SpotSearchViewController.hideKeyboard))
+        tapGesture.cancelsTouchesInView = true
+        tableView.addGestureRecognizer(tapGesture)*/
         setTableViewDelegateProperties()
         setSearchBarDelegateProperties()
     }
+    
+    /* func hideKeyboard() {
+        tableView.endEditing(true)
+    } */
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -30,7 +35,6 @@ class SpotSearchViewController: UIViewController
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
-        
     }
     
     fileprivate func setTableViewDelegateProperties()
@@ -68,36 +72,22 @@ extension SpotSearchViewController: UISearchBarDelegate {
         
         // if the text is empty we are done
         if searchText == "" {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             movieData = [TraktData]()
             tableView?.reloadData()
             return
         }
-
-    if Reachability.isConnectedToNetwork() == true {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         searchTask = TraktClient.sharedInstance().getMoviesForSearchString(searchString: searchText) { (result, error) in
         self.searchTask = nil
         if let movieSearchData = result {
             self.movieData = movieSearchData
             performUIUpdatesOnMain {
                 self.tableView.reloadData()
-                    }
-                }
             }
-        } else {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.searchBar.text = ""
-            self.view.endEditing(true)
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
-        alert.addAction(OKAction)
-        self.present(alert, animated: true)
+            }
         }
     }
     
-
     func fetchImage(_ imagePath: String?) -> UIImage! {
         var image: UIImage!
         if imagePath != nil {

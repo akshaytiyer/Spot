@@ -20,7 +20,7 @@
             <objects>
                 <navigationController id="iyL-jb-gih" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Watchlist" image="Watchlist Icon" selectedImage="Watchlist Icon" id="7IF-Pp-a67"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uOl-8B-5oV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="uOl-8B-5oV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,7 +42,7 @@
         <scene sceneID="OK7-kX-j0H">
             <objects>
                 <collectionViewController id="mEI-4w-fll" customClass="SpotWatchlistViewController" customModule="Spot" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Nwz-Fa-ehi">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Nwz-Fa-ehi">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -493,6 +493,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="DISCOVER" id="Jb4-WH-I1G">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dMh-6h-sTN"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="Lra-Rn-TvW">
+                            <connections>
+                                <action selector="logoutButton:" destination="fil-mJ-esT" id="XHk-H2-537"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityViewController" destination="TTF-sK-U61" id="BMJ-HR-la3"/>

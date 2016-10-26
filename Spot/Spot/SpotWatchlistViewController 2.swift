@@ -16,7 +16,6 @@ class SpotWatchlistViewController: UICollectionViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if Reachability.isConnectedToNetwork() == true {
         _ = TraktClient.sharedInstance().getDiscoverWatchlistData(method: TraktClient.PathExtension.Watchlist) { (result, error) in
             if let watchlistData = result {
                 self.movieData = watchlistData
@@ -24,12 +23,6 @@ class SpotWatchlistViewController: UICollectionViewController
                     self.watchlistView.reloadData()
                 }
             }
-        }
-    } else {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(OKAction)
-            self.present(alert, animated: true)
         }
     }
     

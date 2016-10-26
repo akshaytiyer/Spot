@@ -29,7 +29,6 @@ class SpotDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if Reachability.isConnectedToNetwork() == true {
         _ = TraktClient.sharedInstance().getDiscoverWatchlistData(method: TraktClient.PathExtension.Watchlist) { (result, error) in
             if let watchlistData = result {
                 for movie in watchlistData {
@@ -47,14 +46,6 @@ class SpotDetailViewController: UIViewController {
             } else {
                 print(error)
             }
-        }
-        } else  {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-            alert.addAction(OKAction)
-            self.present(alert, animated: true)
         }
         self.updateView()
         self.updateVotesLabel(self.traktData.votes)
@@ -110,7 +101,7 @@ class SpotDetailViewController: UIViewController {
     @IBAction func watchlistAction(_ sender: AnyObject) {
         
         let shouldWatchlist = !isWatchlist
-        if Reachability.isConnectedToNetwork() == true {
+        
         TraktClient.sharedInstance().toggleWatchlist(self.traktData, shouldWatchlist) { (result, error) in
             if let error = error {
                 print(error)
@@ -119,16 +110,10 @@ class SpotDetailViewController: UIViewController {
                 self.isWatchlist = shouldWatchlist
                 performUIUpdatesOnMain {
                     self.watchlistState.setTitle((shouldWatchlist) ? "Remove from Watchlist" : "Add to Watchlist", for: .normal)
-                        }
-                    }
+                }
                 }
             }
-        }   else  {
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(OKAction)
-            self.present(alert, animated: true)
-
+            
         }
     }
 
