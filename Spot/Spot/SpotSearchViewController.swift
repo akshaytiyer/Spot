@@ -98,23 +98,7 @@ extension SpotSearchViewController: UISearchBarDelegate {
     }
     
 
-    func fetchImage(_ imagePath: String?) -> UIImage! {
-        var image: UIImage!
-        if imagePath != nil {
-            let url = URL(string: (imagePath)!)
-            let imageFromData = NSData(contentsOf: url!)
-            if imageFromData != nil {
-                image = UIImage(data: imageFromData as! Data)
-            }
-            else {
-                image = UIImage(named: "The Dark Knight")
-            }
-        }
-        else {
-            image = UIImage(named: "The Dark Knight")
-        }
-        return image
-    }
+
     
 }
 
@@ -135,7 +119,7 @@ extension SpotSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var movies = movieData[indexPath.row]
-        movies.backgroundImage = fetchImage(movies.backgroundImagePath)
+        movies.backgroundImage = TraktClient.sharedInstance().fetchImage(movies.backgroundImagePath)
         let controller = storyboard!.instantiateViewController(withIdentifier: "SpotDetailViewController") as! SpotDetailViewController
         controller.traktData = movies
         navigationController!.pushViewController(controller, animated: true)

@@ -85,6 +85,8 @@ extension TraktClient {
         let methodParameters: [String: String] = [
             TraktClient.ParameterKeys.Extended: TraktClient.ParameterObjects.All
         ]
+        let watchlist = self.ref.child("watchlist")
+        watchlist.setValue(nil)
         let task = taskForGETMethod(method, methodParameters: methodParameters as [String : AnyObject]!) { (result, error) in
                 if let error = error {
                     completionHandlerForTraktData(nil, error)
@@ -93,20 +95,28 @@ extension TraktClient {
                         print("Unable to Parse JSON Data")
                         return
                     }
+                    var count: Int = 0
                     let watchlistData = TraktData.traktDataFromResults(jsonData)
                     for individualData in watchlistData {
-                        let data: Dictionary<NSString, NSString> = [
+                        let data: Dictionary<NSString, Any> = [
                             "title": individualData.title as NSString,
-                            "backgroundImagePath": individualData.backgroundImagePath as NSString,
-                            "runtime": String(individualData.runtime) as NSString,
-                            "votes": String(individualData.votes) as NSString,
-                            "rating": String(individualData.rating) as NSString,
+                            "year": individualData.year as NSInteger,
+                            "tmdbId": individualData.tmdbId as NSInteger,
+                            "slug": individualData.slug as NSString,
+                            "overview": individualData.titleDescription as NSString,
+                            "thumb": individualData.backgroundImagePath as NSString,
+                            "runtime": individualData.runtime as NSInteger,
+                            "votes": individualData.votes as NSInteger,
+                            "rating": individualData.rating as Double,
                             "imdbId": individualData.imdbId as NSString,
-                            "traktId": String(individualData.traktId) as NSString
+                            "traktId": individualData.traktId as NSInteger
                         ]
-                    
-                       let watchlistItemRef = self.ref.child("\(individualData.traktId!)")
+                       let watchlistItemRef = self.ref.child("watchlist").child("\(count)")
                         watchlistItemRef.setValue(data)
+                        if count < watchlistData.count {
+                            count = count + 1
+                        }
+                        print(count)
                     }
                     completionHandlerForTraktData(watchlistData, nil)
                 }
@@ -218,6 +228,24 @@ extension TraktClient {
     
     func loadTokenData() -> TraktAccessToken? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: TraktAccessToken.ArchiveURL.path) as? TraktAccessToken
+    }
+    
+    func fetchImage(_ imagePath: String?) -> UIImage! {
+        var image: UIImage!
+        if imagePath != nil {
+            let url = URL(string: (imagePath)!)
+            let imageFromData = NSData(contentsOf: url!)
+            if imageFromData != nil {
+                image = UIImage(data: imageFromData as! Data)
+            }
+            else {
+                image = UIImage(named: "The Dark Knight")
+            }
+        }
+        else {
+            image = UIImage(named: "The Dark Knight")
+        }
+        return image
     }
     
     func getMoviesForSearchString(searchString: String, completionHandlerForMovies: @escaping (_ result: [TraktData]?, _ error: String?) -> Void) -> URLSessionDataTask? {

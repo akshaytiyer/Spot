@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
+        //FIRDatabase.database().reference(withPath: "spot-watchlist").keepSynced(false)
+        FIRDatabase.database().goOffline()
         // Override point for customization after application launch.
         TraktClient.sharedInstance().checkTokenValidity { (success, error) in
             if success {

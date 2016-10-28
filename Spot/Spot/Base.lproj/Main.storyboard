@@ -62,7 +62,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvO-iW-WjK">
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dCu-K2-WAK"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Dark Knight" translatesAutoresizingMaskIntoConstraints="NO" id="dCu-K2-WAK"/>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="74,029" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgm-d9-a2s">
                                                     <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="10"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -144,6 +144,11 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="WATCHLIST" id="WHK-gY-Fjd">
                         <barButtonItem key="backBarButtonItem" title="Back" id="JzL-hR-Uul"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="jrO-ZV-Lua">
+                            <connections>
+                                <action selector="refreshToken:" destination="mEI-4w-fll" id="m2e-ue-SDm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Nwz-Fa-ehi" id="UQW-MO-C5L"/>
@@ -620,6 +625,7 @@
         <image name="Background Image" width="160" height="284"/>
         <image name="Discover Icon" width="25" height="25"/>
         <image name="Login Button" width="240" height="43"/>
+        <image name="The Dark Knight" width="130" height="195"/>
         <image name="Watchlist Icon" width="25" height="25"/>
     </resources>
 </document>
