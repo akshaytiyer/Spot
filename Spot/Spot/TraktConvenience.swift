@@ -239,11 +239,11 @@ extension TraktClient {
                 image = UIImage(data: imageFromData as! Data)
             }
             else {
-                image = UIImage(named: "The Dark Knight")
+                image = UIImage(named: "Placeholder Image")
             }
         }
         else {
-            image = UIImage(named: "The Dark Knight")
+            image = UIImage(named: "Placeholder Image")
         }
         return image
     }

@@ -66,11 +66,11 @@ struct TraktData {
                 image = UIImage(data: imageFromData as! Data)
             }
             else {
-                image = UIImage(named: "The Dark Knight")
+                image = UIImage(named: "Placeholder Image")
             }
             }
             else {
-                image = UIImage(named: "The Dark Knight")
+                image = UIImage(named: "Placeholder Image")
             }
             trakt.append(TraktData(traktId: idData["trakt"] as? Int, title: movieData["title"] as? String, year: movieData["year"] as? Int, tmdbId: idData["tmdb"] as? Int, imdbId: idData["imdb"] as? String, slug: idData["slug"] as? String, rating: movieData["rating"] as? Double, votes:  movieData["votes"] as? Int, runtime:  movieData["runtime"] as? Int, titleDescription: movieData["overview"] as? String, backgroundImagePath: poster["thumb"] as? String, backgroundImage: image))
         }
