@@ -16,15 +16,15 @@ The OMDb API has been used to implement the search functionality for the applica
 
 # Functionality 
 
-1. Discover Screen
+1.Discover Screen
 
 Provides the user with a rich in interaction user interface that enables users to get instant access to the most trending, popular screens and many more.
 
-2. Search Screen
+2.Search Screen
 
 The user can automatically search for a collection of plethora of movie titles which can then be added to the watchlist.
-
-3. Watchlist Screen
+ 
+3.Watchlist Screen
 
 Track all the movies which are currently in your watchlist, by accessing their detail view, you can even add and remove movies from your watchlist.
 
